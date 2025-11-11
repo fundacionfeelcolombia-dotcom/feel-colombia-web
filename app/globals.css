@@ -1,26 +1,129 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: "Poppins", sans-serif;
+
+  /* 🎨 Paleta principal Feel Colombia */
+  --color-primary: oklch(0.66 0.13 235); /* Azul cielo #4DB6E2 */
+  --color-primary-foreground: oklch(0.15 0 0); /* Texto oscuro */
+  --color-secondary: 197 72% 60%;
+  --color-secondary-blue: #004666; /* Azul suave #90CAF9 */
+  --color-secondary-blue-foreground: #476680; /* Azul suave #90CAF9 */
+  --color-secondary-foreground: 0 0% 100%;
+  --color-accent: oklch(0.85 0.16 70); /* Coral #FF7E6D */
+  --color-accent-foreground: oklch(0.15 0 0);
+  --color-warm-yellow: oklch(0.88 0.19 85); /* Amarillo cálido #FFD166 */
+  --color-deep-blue: oklch(0.52 0.14 240); /* Azul profundo */
+
+  /* ⚙️ Neutrales y estructura */
+  --color-background: oklch(1 0 0);
+  --color-foreground: oklch(0.145 0 0);
+  --color-border: oklch(0.922 0 0);
+  --color-input: oklch(0.922 0 0);
+  --color-ring: oklch(0.708 0 0);
+
+  /* 🪩 Gradientes */
+  --gradient-hero: linear-gradient(
+    135deg,
+    oklch(0.66 0.13 235),
+    oklch(0.88 0.19 85)
+  );
+  --gradient-primary: linear-gradient(
+    135deg,
+    oklch(0.52 0.14 240),
+    oklch(0.85 0.08 150)
+  );
+
+  /* 🩶 Sombras */
+  --shadow-soft: 0 4px 20px oklch(0 0 0 / 0.05);
+  --shadow-card: 0 6px 25px oklch(0 0 0 / 0.08);
+
+  /* 🧩 Bordes */
+  --radius: 0.625rem;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+.dark {
+  --color-background: oklch(0.145 0 0);
+  --color-foreground: oklch(0.985 0 0);
+  --color-primary: oklch(0.7 0.1 235);
+  --color-primary-foreground: oklch(0.985 0 0);
+  --color-border: oklch(1 0 0 / 10%);
+  --color-ring: oklch(0.556 0 0);
+  --shadow-card: 0 6px 25px oklch(0 0 0 / 0.2);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Poppins", sans-serif;
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+@layer utilities {
+  .text-gradient-primary {
+    @apply bg-gradient-to-tr from-primary to-secondary bg-clip-text text-transparent;
+  }
+  .hover-lift {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-lg;
+  }
+
+  .btn-gradient {
+    @apply bg-gradient-to-r from-primary to-secondary text-white;
+  }
 }
