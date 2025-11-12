@@ -1,4 +1,5 @@
 import { Facebook, Heart, Instagram, Twitter, Youtube } from "lucide-react";
+import Link from "next/link";
 
 export const Footer = () => {
   return (
@@ -56,36 +57,28 @@ export const Footer = () => {
             <h3 className="font-semibold text-secondary-blue mb-4">Enlaces</h3>
             <ul className="space-y-3">
               <li>
-                <a
-                  href="#inicio"
+                <Link
+                  href="/"
                   className="text-secondary-blue-foreground hover:text-primary transition-colors"
                 >
                   Inicio
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#nosotros"
+                <Link
+                  href="/quienes-somos"
                   className="text-secondary-blue-foreground hover:text-primary transition-colors"
                 >
-                  Sobre nosotros
-                </a>
+                  Quiénes somos
+                </Link>
               </li>
               <li>
-                <a
-                  href="#recursos"
+                <Link
+                  href="/nuestro-equipo"
                   className="text-secondary-blue-foreground hover:text-primary transition-colors"
                 >
-                  Recursos
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#comunidad"
-                  className="text-secondary-blue-foreground hover:text-primary transition-colors"
-                >
-                  Comunidad
-                </a>
+                  Nuestro equipo
+                </Link>
               </li>
             </ul>
           </div>
