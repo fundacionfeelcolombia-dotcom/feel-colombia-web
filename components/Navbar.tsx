@@ -1,5 +1,6 @@
 import { Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const Navbar = () => {
   return (
@@ -17,29 +18,29 @@ const Navbar = () => {
           </a>
 
           <div className="hidden md:flex items-center gap-8">
-            <a
-              href="#inicio"
+            <Link
+              href="/"
               className="text-secondary-blue-foreground hover:text-primary transition-colors"
             >
               Inicio
-            </a>
-            <a
-              href="#nosotros"
+            </Link>
+            <Link
+              href="/quienes-somos"
               className="text-secondary-blue-foreground hover:text-primary transition-colors"
             >
-              Sobre nosotros
-            </a>
-            <a
-              href="#recursos"
+              Quiénes somos
+            </Link>
+            <Link
+              href="/nuestro-equipo"
               className="text-secondary-blue-foreground hover:text-primary transition-colors"
             >
-              Recursos
-            </a>
+              Nuestro equipo
+            </Link>
             <a
               href="#comunidad"
               className="text-secondary-blue-foreground hover:text-primary transition-colors"
             >
-              Comunidad
+              Nuestros programas
             </a>
             <Button
               variant="default"

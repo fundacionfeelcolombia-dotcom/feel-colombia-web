@@ -1,0 +1,109 @@
+import { Facebook, Heart, Instagram, Twitter, Youtube } from "lucide-react";
+
+export const Footer = () => {
+  return (
+    <footer
+      id="contacto"
+      className="bg-muted/30 border-t border-border py-12 sm:py-16"
+    >
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid md:grid-cols-4 gap-8 mb-12">
+          <div className="md:col-span-2">
+            <div className="flex items-center gap-2 mb-4">
+              <span className="text-2xl font-semibold text-foreground">
+                feel
+              </span>
+              <Heart className="w-6 h-6 fill-accent text-accent" />
+              <span className="text-2xl font-bold text-primary">COLOMBIA</span>
+            </div>
+            <p className="text-secondary-blue-foreground mb-6 max-w-md">
+              Plataforma de salud mental y bienestar emocional para niños y
+              jóvenes. Innovación social al servicio de las nuevas generaciones.
+            </p>
+            <div className="flex gap-4">
+              <a
+                href="#"
+                className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center hover:bg-primary/20 transition-colors"
+                aria-label="Facebook"
+              >
+                <Facebook className="w-5 h-5 text-primary" />
+              </a>
+              <a
+                href="#"
+                className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center hover:bg-primary/20 transition-colors"
+                aria-label="Instagram"
+              >
+                <Instagram className="w-5 h-5 text-primary" />
+              </a>
+              <a
+                href="#"
+                className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center hover:bg-primary/20 transition-colors"
+                aria-label="Twitter"
+              >
+                <Twitter className="w-5 h-5 text-primary" />
+              </a>
+              <a
+                href="#"
+                className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center hover:bg-primary/20 transition-colors"
+                aria-label="Youtube"
+              >
+                <Youtube className="w-5 h-5 text-primary" />
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <h3 className="font-semibold text-secondary-blue mb-4">Enlaces</h3>
+            <ul className="space-y-3">
+              <li>
+                <a
+                  href="#inicio"
+                  className="text-secondary-blue-foreground hover:text-primary transition-colors"
+                >
+                  Inicio
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#nosotros"
+                  className="text-secondary-blue-foreground hover:text-primary transition-colors"
+                >
+                  Sobre nosotros
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#recursos"
+                  className="text-secondary-blue-foreground hover:text-primary transition-colors"
+                >
+                  Recursos
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#comunidad"
+                  className="text-secondary-blue-foreground hover:text-primary transition-colors"
+                >
+                  Comunidad
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="font-semibold text-secondary-blue mb-4">Contacto</h3>
+            <ul className="space-y-3 text-secondary-blue-foreground">
+              <li>info@feelcolombia.org</li>
+              <li>+57 (1) 234 5678</li>
+              <li>Bogotá, Colombia</li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="border-t border-border pt-8 text-center text-secondary-blue-foreground text-sm">
+          <p>© 2025 Feel Colombia. Todos los derechos reservados.</p>
+        </div>
+      </div>
+    </footer>
+  );
+};

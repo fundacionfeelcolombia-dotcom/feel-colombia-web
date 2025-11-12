@@ -8,13 +8,25 @@ export const Hero = () => {
     <section
       id="inicio"
       className="relative pt-24 sm:pt-32 pb-16 sm:pb-24 bg-gradient-hero overflow-hidden"
+      style={{
+        background:
+          "linear-gradient(135deg, hsl(197 72% 60% / 0.1), hsl(45 98% 59% / 0.1))",
+      }}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6 sm:space-y-8 animate-fade-in">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-secondary-blue">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-16 text-secondary-blue">
               Conectamos con el
-              <span className="text-gradient-primary">
+              <span
+                style={{
+                  background:
+                    "linear-gradient(135deg, hsl(197 100% 44%), hsl(197 72% 60%))",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  display: "inline-block",
+                }}
+              >
                 {" "}
                 bienestar emocional{" "}
               </span>
