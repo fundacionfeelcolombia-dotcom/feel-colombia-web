@@ -1,51 +1,37 @@
+/* eslint-disable react/no-unescaped-entities */
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import imgKids from "@/public/images/children-enjoying.jpg";
+import communityParticipation from "@/public/images/community-participation.jpg";
 import {
   ArrowLeft,
   BarChart3,
   Beaker,
-  Building2,
-  Cpu,
-  Globe,
+  FileText,
   Heart,
   Lightbulb,
   Mail,
   MessageCircle,
+  Palette,
   QrCode,
   Users,
 } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
+import experienceEducativeImage from "@/public/images/experience-educative.jpg";
+import emotionalImage from "@/public/images/emotional-well-being.jpg";
+import healthInnovationLab from "@/public/images/health-innovation-lab.jpg";
+
+import program1 from "@/public/images/collage-program-1.jpg";
+import program2 from "@/public/images/collage-program-2.jpg";
+import program3 from "@/public/images/collage-program-3.jpg";
+import program4 from "@/public/images/collage-program-4.jpg";
+import program5 from "@/public/images/collage-program-5.jpg";
 
 interface ProgramPageProps {
   params: Promise<{ slug: string }>;
 }
-
-const steps = [
-  {
-    icon: QrCode,
-    title: "Encuesta emocional anónima (QR semanal)",
-    description:
-      "Medición semanal del estado emocional del equipo a través de un QR rápido y anónimo. Sin aplicaciones, sin fricción.",
-  },
-  {
-    icon: MessageCircle,
-    title: "Círculos emocionales y cápsulas digitales",
-    description:
-      "Espacios de conversación facilitados por psicólogos y contenidos digitales de bienestar emocional personalizados.",
-  },
-  {
-    icon: BarChart3,
-    title: "Tableros visuales (Feel Dashboard)",
-    description:
-      "Panel de visualización del clima emocional organizacional con datos en tiempo real y tendencias.",
-  },
-  {
-    icon: Heart,
-    title: "Acompañamiento continuo",
-    description:
-      "Seguimiento constante por parte de nuestro equipo interdisciplinario con ajustes según las necesidades del equipo.",
-  },
-];
 
 const allPrograms = [
   {
@@ -53,108 +39,156 @@ const allPrograms = [
     slug: "synha-lab",
     titleCover: "Laboratorio de Innovación en Salud Mental",
     phraseCover: "Donde la ciencia, la tecnología y la empatía se encuentran.",
-    buttonText: "Colabora con nosotros",
+    buttonText: "Colabora con Synha Lab",
     description:
-      "Synha Lab es el laboratorio de innovación de la Fundación Feel Colombia, un espacio donde investigadores, profesionales y jóvenes con experiencias vividas co-crean soluciones híbridas —digitales y presenciales— para fortalecer la salud mental individual y colectiva. Desde Synha Lab exploramos nuevas formas de entender, medir y promover el bienestar emocional, combinando evidencia científica, diseño tecnológico y participación comunitaria. Nuestro propósito es transformar los modelos tradicionales de atención en salud mental, haciéndolos más accesibles, humanos y sostenibles.",
+      "Synha Lab es el laboratorio de innovación de la Fundación Feel Colombia, un espacio donde investigadores, profesionales y jóvenes con experiencias vividas co-crean soluciones híbridas digitales y presenciales para fortalecer la salud mental individual y colectiva. Desde Synha Lab exploramos nuevas formas de entender, medir y promover el bienestar emocional, combinando evidencia científica, diseño tecnológico y participación comunitaria. Nuestro propósito es transformar los modelos tradicionales de atención en salud mental, haciéndolos más accesibles, humanos y sostenibles.",
     phraseDesc:
       "La innovación en salud mental no ocurre en laboratorios aislados, sino en la intersección entre la ciencia, la tecnología y las voces de quienes viven las experiencias.",
     linesOfAction: [
       {
         title: "Investigación aplicada",
+        icon: Beaker,
         description:
           "Desarrollamos estudios y proyectos que permiten identificar y analizar índices de riesgo depresivo, ansioso y de psicosis temprana en jóvenes y adultos. A partir de estos hallazgos, diseñamos estrategias preventivas y de acompañamiento que fortalecen la detección oportuna y la resiliencia emocional.",
       },
       {
         title: "Diseño y tecnología",
+        icon: Beaker,
         description:
           "Creamos plataformas, prototipos y herramientas digitales que amplifican el acceso a recursos de bienestar emocional, mejoran la alfabetización en salud mental y facilitan la conexión entre comunidades y servicios de apoyo.",
       },
       {
         title: "Participación juvenil",
+        icon: Beaker,
         description:
           "Integramos a jóvenes con experiencias vividas en todas las etapas del proceso desde la ideación hasta la validación, reconociendo su voz como fuente esencial de conocimiento para construir soluciones que realmente respondan a las necesidades del territorio.",
       },
       {
         title: "Colaboración institucional y comunitaria",
+        icon: Beaker,
         description:
           "Trabajamos junto a alcaldías locales, ediles, instituciones educativas distritales, clubes deportivos y redes comunitarias, fortaleciendo una red intersectorial de cuidado que lleva la innovación emocional a los entornos donde más se necesita.",
       },
       {
         title: "Colaboración internacional",
+        icon: Beaker,
         description:
           "Conectamos actores académicos, sociales y tecnológicos de diferentes países para compartir aprendizajes, validar modelos y escalar soluciones sostenibles que integren ciencia y empatía.",
       },
     ],
-    howItWorks: [
-      {
-        title: "Encuesta emocional anónima (QR semanal)",
-        description:
-          "Medición semanal del estado emocional del equipo a través de un QR rápido y anónimo. Sin aplicaciones, sin fricción.",
-      },
-      {
-        title: "Círculos emocionales y cápsulas digitales",
-        description:
-          "Espacios de conversación facilitados por psicólogos y contenidos digitales de bienestar emocional personalizados.",
-      },
-      {
-        title: "Tableros visuales (Feel Dashboard)",
-        description:
-          "Panel de visualización del clima emocional organizacional con datos en tiempo real y tendencias.",
-      },
-      {
-        title: "Acompañamiento continuo",
-        description:
-          "Seguimiento constante por parte de nuestro equipo interdisciplinario con ajustes según las necesidades del equipo.",
-      },
-    ],
+    howItWorks: [],
     ourImpact: {
-      desc: "Synha Lab impulsa entornos más sanos, colaborativos y emocionalmente equilibrados, donde las personas pueden desarrollar todo su potencial humano y social. Creemos que una sociedad emocionalmente estable no solo reduce problemáticas derivadas del malestar —como la desmotivación, el aislamiento o la frustración colectiva—, sino que favorece el florecimiento de comunidades más creativas, productivas y cohesionadas. Nuestro trabajo busca generar un equilibrio entre bienestar emocional, innovación social y desarrollo sostenible, entendiendo que cuidar la mente es también cuidar la vitalidad de los sistemas humanos que sostienen a la sociedad.",
+      desc: "Synha Lab impulsa entornos más sanos, colaborativos y emocionalmente equilibrados, donde las personas pueden desarrollar todo su potencial humano y social. Creemos que una sociedad emocionalmente estable no solo reduce problemáticas derivadas del malestar como la desmotivación, el aislamiento o la frustración colectiva, sino que favorece el florecimiento de comunidades más creativas, productivas y cohesionadas. Nuestro trabajo busca generar un equilibrio entre bienestar emocional, innovación social y desarrollo sostenible, entendiendo que cuidar la mente es también cuidar la vitalidad de los sistemas humanos que sostienen a la sociedad.",
       phrase: "Cuidar la mente es cuidar el futuro de la sociedad.",
     },
-    testimonials: [
-      {
-        desc: "Pulso corporativo nos permitió escuchar lo que nunca se decía en las reuniones. Ahora nuestro equipo tiene espacios seguros para expresar y transformar su día a día.",
-        nameTestiomanial: "Gerente de Talento Humano, Empresa Tech",
-      },
-    ],
+    testimonials: [],
     infoContact: {
       title: "Únete a Synha Lab",
       desc: "Si eres investigador, profesional, estudiante o simplemente alguien apasionado por la innovación en salud mental, queremos conocerte. Construyamos juntos el futuro del bienestar emocional.",
       buttonText: "Quiero colaborar con Synha Lab",
     },
-  },
-];
-
-const actionLines = [
-  {
-    icon: Beaker,
-    title: "Investigación aplicada",
-    description:
-      "Desarrollamos estudios y proyectos que permiten identificar y analizar índices de riesgo depresivo, ansioso y de psicosis temprana en jóvenes y adultos. A partir de estos hallazgos, diseñamos estrategias preventivas y de acompañamiento que fortalecen la detección oportuna y la resiliencia emocional.",
+    imgCover: healthInnovationLab,
   },
   {
-    icon: Cpu,
-    title: "Diseño y tecnología",
+    title: "Aula Viva",
+    slug: "aula-viva",
+    titleCover:
+      "Una experiencia educativa y artística para sentir, conectar y sanar.",
+    phraseCover: "Donde la ciencia, la tecnología y la empatía se encuentran.",
+    buttonText: "Quiero llevar Aula Viva a mi colegio",
     description:
-      "Creamos plataformas, prototipos y herramientas digitales que amplifican el acceso a recursos de bienestar emocional, mejoran la alfabetización en salud mental y facilitan la conexión entre comunidades y servicios de apoyo.",
+      "Aula Viva es un programa interdisciplinario que combina psicología, arte y educación para transformar el aula en un espacio de bienestar emocional. A través de talleres vivenciales, acompañamos a estudiantes, docentes y familias en procesos de autoconocimiento, expresión emocional y construcción de comunidad.",
+    phraseDesc:
+      "Cuando el aula se convierte en un espacio vivo, las emociones se transforman en aprendizaje.",
+    linesOfAction: [],
+    howItWorks: [],
+    ourImpact: null,
+    testimonials: [],
+    infoContact: {
+      title: "Inversión y contacto",
+      desc: "Cotiza Aula Viva para tu institución educativa y transforma el bienestar emocional de tu comunidad escolar.",
+      buttonText: "Cotizar programa",
+    },
+    team: [
+      "Psicólogos clínicos",
+      "Artistas y pedagogos",
+      "Investigadores sociales",
+    ],
+    include: [
+      {
+        title: "Taller psicoeducativo",
+        desc: "Sesiones guiadas por psicólogos para explorar emociones, autoconocimiento y herramientas de regulación emocional.",
+        icon: Heart,
+      },
+      {
+        title: "Taller artístico",
+        desc: "Expresión creativa a través de pintura, música, escritura y otras disciplinas como canal de sanación emocional.",
+        icon: Palette,
+      },
+      {
+        title: "Taller para padres",
+        desc: "Espacios de formación y acompañamiento para familias, reforzando el bienestar emocional desde casa.",
+        icon: Users,
+      },
+      {
+        title: "Informe institucional",
+        desc: "Entrega de resultados, análisis emocional del grupo y recomendaciones para el seguimiento escolar.",
+        icon: FileText,
+      },
+    ],
+    imgCover: experienceEducativeImage,
   },
   {
-    icon: Users,
-    title: "Participación juvenil",
+    title: "Pulso Corporativo",
+    slug: "pulso-corporativo",
+    titleCover:
+      "Bienestar emocional con tecnología humana (sin apps, sin fricción).",
+    phraseCover: "Donde la ciencia, la tecnología y la empatía se encuentran.",
+    buttonText: "Solicitar diagnóstico gratuito",
     description:
-      "Integramos a jóvenes con experiencias vividas en todas las etapas del proceso —desde la ideación hasta la validación—, reconociendo su voz como fuente esencial de conocimiento para construir soluciones que realmente respondan a las necesidades del territorio.",
-  },
-  {
-    icon: Building2,
-    title: "Colaboración institucional y comunitaria",
-    description:
-      "Trabajamos junto a alcaldías locales, ediles, instituciones educativas distritales, clubes deportivos y redes comunitarias, fortaleciendo una red intersectorial de cuidado que lleva la innovación emocional a los entornos donde más se necesita.",
-  },
-  {
-    icon: Globe,
-    title: "Colaboración internacional",
-    description:
-      "Conectamos actores académicos, sociales y tecnológicos de diferentes países para compartir aprendizajes, validar modelos y escalar soluciones sostenibles que integren ciencia y empatía.",
+      "Pulso Corporativo es un programa de bienestar emocional diseñado para transformar el clima organizacional desde la escucha activa y el acompañamiento continuo. Sin aplicaciones complejas, sin interferir con la operación diaria. Solo tecnología humana que funciona.",
+    phraseDesc: "Cuando las emociones fluyen, los equipos prosperan.",
+    linesOfAction: [],
+    howItWorks: [
+      {
+        title: "Encuesta emocional anónima (QR semanal)",
+        description:
+          "Medición semanal del estado emocional del equipo a través de un QR rápido y anónimo. Sin aplicaciones, sin fricción.",
+        icon: QrCode,
+      },
+      {
+        title: "Círculos emocionales y cápsulas digitales",
+        description:
+          "Espacios de conversación facilitados por psicólogos y contenidos digitales de bienestar emocional personalizados.",
+        icon: MessageCircle,
+      },
+      {
+        title: "Tableros visuales (Feel Dashboard)",
+        description:
+          "Panel de visualización del clima emocional organizacional con datos en tiempo real y tendencias.",
+        icon: BarChart3,
+      },
+      {
+        title: "Acompañamiento continuo",
+        description:
+          "Seguimiento constante por parte de nuestro equipo interdisciplinario con ajustes según las necesidades del equipo.",
+        icon: Heart,
+      },
+    ],
+    ourImpact: null,
+    testimonials: [
+      {
+        desc: "Pulso corporativo nos permitió escuchar lo que nunca se decía en las reuniones. Ahora nuestro equipo tiene espacios seguros para expresar y transformar su día a día.",
+        nameTestiomanial: "Gerente de Talento Humano, Empresa Tech",
+        id: 1,
+      },
+    ],
+    infoContact: {
+      title: "Solicita un diagnóstico gratuito",
+      desc: "Solicita un diagnóstico gratuito de tu clima emocional y recibe un ejemplo del Feel Dashboard personalizado para tu organización.",
+      buttonText: "Solicitar diagnóstico gratuito",
+    },
+    imgCover: emotionalImage,
   },
 ];
 
@@ -168,7 +202,6 @@ const PageDetailProgram = async ({ params }: ProgramPageProps) => {
 
   const findProgram = allPrograms.find((program) => program.slug === slug);
 
-  console.log("findProgram", findProgram);
   if (!findProgram) {
     return <div>Program not found</div>;
   }
@@ -201,208 +234,320 @@ const PageDetailProgram = async ({ params }: ProgramPageProps) => {
 
           <div className="animate-fade-in text-center">
             <h1 className="text-4xl md:text-6xl font-bold text-secondary-blue mb-6">
-              Synha Lab
+              {findProgram.title}
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-              Laboratorio de Innovación en Salud Mental
+              {findProgram.titleCover}
             </p>
             <p className="text-lg md:text-xl text-primary font-semibold mb-8">
-              Donde la ciencia, la tecnología y la empatía se encuentran.
+              {findProgram.phraseCover}
             </p>
             <Button size="lg" asChild className="text-white">
               <a href="mailto:proyectos@fundacionfeelcolombia.org">
-                Colabora con Synha Lab
+                {findProgram.buttonText}
               </a>
             </Button>
           </div>
         </div>
       </section>
 
-      {/* ¿Qué es Synha Lab? */}
+      {/* ¿Qué es? */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
-          <Card className="shadow-card animate-scale-in">
-            <CardContent className="p-8 md:p-12">
-              <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                Synha Lab es el laboratorio de innovación de la Fundación Feel
-                Colombia, un espacio donde investigadores, profesionales y
-                jóvenes con experiencias vividas co-crean soluciones híbridas
-                —digitales y presenciales— para fortalecer la salud mental
-                individual y colectiva.
-              </p>
-              <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-                Desde Synha Lab exploramos nuevas formas de entender, medir y
-                promover el bienestar emocional, combinando evidencia
-                científica, diseño tecnológico y participación comunitaria.
-                Nuestro propósito es transformar los modelos tradicionales de
-                atención en salud mental, haciéndolos más accesibles, humanos y
-                sostenibles.
-              </p>
-              <div className="bg-primary/10 p-6 rounded-lg border-l-4 border-primary">
-                <p className="text-xl italic text-secondary-blue font-medium">
-                  "La innovación en salud mental no ocurre en laboratorios
-                  aislados, sino en la intersección entre la ciencia, la
-                  tecnología y las voces de quienes viven las experiencias."
+          <Card className="shadow-card animate-scale-in ">
+            <CardContent className="p-8 md:px-12 md:py-4 flex flex-col">
+              <div className=" bg-muted rounded-lg overflow-hidden shadow-card hover:shadow-soft transition-shadow duration-300">
+                <Image
+                  src={findProgram.imgCover}
+                  alt="Ilustración de bienestar emocional"
+                  className="w-full object-cover h-[400px]"
+                />
+              </div>
+              <div className="mt-6">
+                <p className=" text-muted-foreground leading-relaxed mb-6 prose prose-lg prose-slate max-w-none">
+                  {findProgram.description}
                 </p>
+
+                <div className="bg-primary/10 p-6 rounded-lg border-l-4 border-primary">
+                  <p className="text-xl italic text-secondary-blue font-medium">
+                    "{findProgram.phraseDesc}"
+                  </p>
+                </div>
               </div>
             </CardContent>
           </Card>
         </div>
       </section>
 
-      {/* Líneas de acción */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary-blue mb-12">
-            Líneas de acción
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {actionLines.map((line, index) => (
-              <Card
-                key={index}
-                className="shadow-card hover:shadow-soft transition-all duration-300 animate-fade-in hover:scale-105"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <CardHeader>
-                  <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center mb-4">
-                    <line.icon className="w-8 h-8 text-primary" />
-                  </div>
-                  <CardTitle className="text-xl text-secondary-blue">
-                    {line.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {line.description}
+      {/* Equipo interdisciplinario */}
+      {findProgram.team && (
+        <section className="py-20 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-5xl mx-auto text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-secondary-blue mb-12">
+              Equipo interdisciplinario
+            </h2>
+            <div className="flex flex-wrap justify-center gap-8 md:gap-12">
+              {findProgram.team.map((member, index) => (
+                <div
+                  key={index}
+                  className="flex flex-col items-center animate-scale-in"
+                  style={{ animationDelay: `${index * 0.15}s` }}
+                >
+                  <Avatar className="w-24 h-24 md:w-32 md:h-32 mb-4 border-4 border-primary/20">
+                    <AvatarImage src="/placeholder.svg" alt={member} />
+                    <AvatarFallback className="text-2xl font-bold bg-primary/10 text-primary">
+                      {member.slice(0, 2).toUpperCase()}
+                    </AvatarFallback>
+                  </Avatar>
+                  <p className="text-lg font-semibold text-secondary-blue">
+                    {member}
                   </p>
-                </CardContent>
-              </Card>
-            ))}
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
+      {/* Collage Grid */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary-blue mb-12">
-            Cómo funciona Pulso Corporativo
-          </h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            {steps.map((step, index) => (
-              <Card
-                key={index}
-                className="shadow-card hover:shadow-soft transition-all duration-300 animate-fade-in hover:scale-105"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <CardHeader>
-                  <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center mb-4">
-                    <step.icon className="w-8 h-8 text-primary" />
-                  </div>
-                  <CardTitle className="text-xl leading-tight text-secondary-blue">
-                    {step.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {step.description}
-                  </p>
-                </CardContent>
-              </Card>
-            ))}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 items-center max-w-6xl mx-auto">
+          {/* Left Column - Two Images Stacked */}
+          <div className="flex flex-col gap-4 md:gap-6 ">
+            {/* Top Left Image */}
+            <div className="h-64 md:h-56 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <Image
+                src={program1}
+                alt="Ilustración de bienestar emocional"
+                className="w-full h-full object-cover"
+              />
+            </div>
+
+            {/* Bottom Left Image */}
+            <div className="h-64 md:h-56 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <Image
+                src={program2}
+                alt="Ilustración de bienestar emocional"
+                className="w-full h-full object-cover"
+              />
+            </div>
           </div>
 
-          {/* Timeline visual opcional */}
-          <div className="mt-16 flex justify-center">
-            <div className="relative">
-              <div className="absolute top-1/2 left-0 right-0 h-1 bg-primary/20 -translate-y-1/2"></div>
-              <div className="relative flex justify-between items-center gap-8 md:gap-16">
-                {[1, 2, 3, 4].map((num) => (
-                  <div
-                    key={num}
-                    className="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center font-bold text-lg shadow-soft animate-scale-in"
-                    style={{ animationDelay: `${(num - 1) * 0.15}s` }}
-                  >
-                    {num}
-                  </div>
-                ))}
-              </div>
+          {/* Center - Main Large Image */}
+          <div className="md:col-span-1 order-first md:order-none">
+            <div className="h-full rounded-xl overflow-hidden shadow-2xl hover:shadow-2xl transition-shadow duration-300">
+              <Image
+                src={program5}
+                alt="Ilustración de bienestar emocional"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+
+          {/* Right Column - Two Images Stacked */}
+          <div className="flex flex-col gap-4 md:gap-6">
+            {/* Top Right Image */}
+            <div className="h-64 md:h-56 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <Image
+                src={program4}
+                alt="Ilustración de bienestar emocional"
+                className="w-full h-full object-cover"
+              />
+            </div>
+
+            {/* Bottom Right Image */}
+            <div className="h-64 md:h-56 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <Image
+                src={program3}
+                alt="Ilustración de bienestar emocional"
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Nuestro impacto */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary-blue mb-12">
-            Nuestro impacto
-          </h2>
-          <Card className="shadow-card animate-scale-in bg-gradient-to-br from-primary/5 to-secondary/10">
-            <CardContent className="p-8 md:p-12">
-              <div className="flex flex-col items-center text-center mb-8">
-                <div className="w-20 h-20 rounded-full bg-primary/20 flex items-center justify-center mb-6">
-                  <Lightbulb className="w-10 h-10 text-primary" />
+      {/* ¿Qué incluye Aula Viva? */}
+      {findProgram.include && (
+        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary-blue mb-12">
+              ¿Qué incluye Aula Viva?
+            </h2>
+            <div className="grid md:grid-cols-2 gap-8">
+              {findProgram.include.map((component, index) => (
+                <Card
+                  key={index}
+                  className="shadow-card hover:shadow-soft transition-all duration-300 animate-fade-in hover:scale-105"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  <CardHeader>
+                    <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center mb-4">
+                      <component.icon className="w-8 h-8 text-primary" />
+                    </div>
+                    <CardTitle className="text-2xl text-secondary-blue">
+                      {component.title}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {component.desc}
+                    </p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Líneas de acción */}
+      {findProgram.linesOfAction.length > 0 && (
+        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary-blue mb-12">
+              Líneas de acción
+            </h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {findProgram.linesOfAction.map((line, index) => (
+                <Card
+                  key={index}
+                  className="shadow-card hover:shadow-soft transition-all duration-300 animate-fade-in hover:scale-105"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  <CardHeader>
+                    <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center mb-4">
+                      <line.icon className="w-8 h-8 text-primary" />
+                    </div>
+                    <CardTitle className="text-xl text-secondary-blue">
+                      {line.title}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {line.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {findProgram.howItWorks.length > 0 && (
+        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary-blue mb-12">
+              Cómo funciona Pulso Corporativo
+            </h2>
+            <div className="grid md:grid-cols-2 gap-8">
+              {findProgram.howItWorks.map((step, index) => (
+                <Card
+                  key={index}
+                  className="shadow-card hover:shadow-soft transition-all duration-300 animate-fade-in hover:scale-105"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  <CardHeader>
+                    <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center mb-4">
+                      <step.icon className="w-8 h-8 text-primary" />
+                    </div>
+                    <CardTitle className="text-xl leading-tight text-secondary-blue">
+                      {step.title}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {step.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+
+            {/* Timeline visual opcional */}
+            <div className="mt-16 flex justify-center">
+              <div className="relative">
+                <div className="absolute top-1/2 left-0 right-0 h-1 bg-primary/20 -translate-y-1/2"></div>
+                <div className="relative flex justify-between items-center gap-8 md:gap-16">
+                  {findProgram.howItWorks.map((step, index) => (
+                    <div
+                      key={index}
+                      className="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center font-bold text-lg shadow-soft animate-scale-in"
+                      style={{ animationDelay: `${index * 0.15}s` }}
+                    >
+                      {index + 1}
+                    </div>
+                  ))}
                 </div>
-                <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                  Synha Lab impulsa entornos más sanos, colaborativos y
-                  emocionalmente equilibrados, donde las personas pueden
-                  desarrollar todo su potencial humano y social. Creemos que una
-                  sociedad emocionalmente estable no solo reduce problemáticas
-                  derivadas del malestar —como la desmotivación, el aislamiento
-                  o la frustración colectiva—, sino que favorece el
-                  florecimiento de comunidades más creativas, productivas y
-                  cohesionadas.
-                </p>
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  Nuestro trabajo busca generar un equilibrio entre bienestar
-                  emocional, innovación social y desarrollo sostenible,
-                  entendiendo que cuidar la mente es también cuidar la vitalidad
-                  de los sistemas humanos que sostienen a la sociedad.
-                </p>
               </div>
-              <div className="bg-primary/10 p-6 rounded-lg border-l-4 border-primary">
-                <p className="text-xl italic text-secondary-blue font-medium">
-                  "Cuidar la mente es cuidar el futuro de la sociedad."
-                </p>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Nuestro impacto */}
+      {findProgram.ourImpact && (
+        <section className="py-20 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary-blue mb-12">
+              Nuestro impacto
+            </h2>
+            <Card className="shadow-card animate-scale-in bg-gradient-to-br from-primary/5 to-secondary/10">
+              <CardContent className="p-8 md:p-12">
+                <div className="flex flex-col items-center text-center mb-8">
+                  <div className="w-20 h-20 rounded-full bg-primary/20 flex items-center justify-center mb-6">
+                    <Lightbulb className="w-10 h-10 text-primary" />
+                  </div>
+
+                  <p className="prose prose-lg prose-slate max-w-none text-muted-foreground">
+                    {findProgram.ourImpact.desc}
+                  </p>
+                </div>
+                <div className="bg-primary/10 p-6 rounded-lg border-l-4 border-primary">
+                  <p className="text-xl italic text-secondary-blue font-medium">
+                    "{findProgram.ourImpact.phrase}"
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </section>
+      )}
 
       {/* Testimonio */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
-          <Card className="shadow-card animate-fade-in bg-gradient-to-br from-secondary/10 to-primary/5">
-            <CardContent className="p-8 md:p-12">
-              <div className="flex flex-col items-center text-center">
-                <div className="w-20 h-20 rounded-full bg-primary/20 flex items-center justify-center mb-6">
-                  <Heart className="w-10 h-10 text-primary" />
-                </div>
-                <p className="text-xl md:text-2xl italic text-secondary-blue mb-6 leading-relaxed">
-                  "Pulso corporativo nos permitió escuchar lo que nunca se decía
-                  en las reuniones. Ahora nuestro equipo tiene espacios seguros
-                  para expresar y transformar su día a día."
-                </p>
-                <p className="text-muted-foreground font-medium">
-                  — Gerente de Talento Humano, Empresa Tech
-                </p>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
+      {findProgram.testimonials.length > 0 && (
+        <section className="py-20 px-4 sm:px-6 lg:px-8">
+          {findProgram.testimonials.map((prom) => (
+            <div className="max-w-4xl mx-auto" key={prom.id}>
+              <Card className="shadow-card animate-fade-in bg-gradient-to-br from-secondary/10 to-primary/5">
+                <CardContent className="p-8 md:p-12">
+                  <div className="flex flex-col items-center text-center">
+                    <div className="w-20 h-20 rounded-full bg-primary/20 flex items-center justify-center mb-6">
+                      <Heart className="w-10 h-10 text-primary" />
+                    </div>
+                    <p className="text-xl md:text-2xl italic text-secondary-blue mb-6 leading-relaxed">
+                      "{prom.desc}"
+                    </p>
+                    <p className="text-muted-foreground font-medium">
+                      — {prom.nameTestiomanial}
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          ))}
+        </section>
+      )}
 
       {/* CTA final */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-secondary/10 to-primary/10">
         <div className="max-w-4xl mx-auto text-center animate-scale-in">
           <h2 className="text-3xl md:text-4xl font-bold text-secondary-blue mb-6">
-            Únete a Synha Lab
+            {findProgram.infoContact.title}
           </h2>
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Si eres investigador, profesional, estudiante o simplemente alguien
-            apasionado por la innovación en salud mental, queremos conocerte.
-            Construyamos juntos el futuro del bienestar emocional.
+            {findProgram.infoContact.desc}
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
             <Mail className="w-6 h-6 text-primary" />
@@ -418,7 +563,7 @@ const PageDetailProgram = async ({ params }: ProgramPageProps) => {
               href="mailto:proyectos@fundacionfeelcolombia.org"
               className="text-white"
             >
-              Quiero colaborar con Synha Lab
+              {findProgram.infoContact.buttonText}
             </a>
           </Button>
 

@@ -4,7 +4,7 @@ import { Testimonials } from "@/components/Testimonials";
 
 export default function Home() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen ">
       <main>
         <Hero />
         <Features />

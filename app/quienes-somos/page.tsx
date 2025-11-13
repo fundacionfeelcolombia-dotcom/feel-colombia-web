@@ -9,6 +9,7 @@ import peopleExperience from "@/public/images/people-experience.jpg";
 import communityIntervention from "@/public/images/community-intervention.jpg";
 import { Heart, Target } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 const WhoWeArePage = () => {
   return (
@@ -30,16 +31,16 @@ const WhoWeArePage = () => {
                 mental, poniendo al ser humano y su historia en el centro de
                 todo.
               </p>
-              <Button
-                size="lg"
-                className="hover:opacity-90 transition-opacity cursor-pointer text-white"
+              <Link
+                href="/programas/synha-lab"
+                className="hover:opacity-90 transition-opacity cursor-pointer text-white px-4 py-2 rounded-md"
                 style={{
                   background:
                     "linear-gradient(135deg, hsl(197 100% 44%), hsl(197 72% 60%))",
                 }}
               >
                 Descubre Synha Lab
-              </Button>
+              </Link>
             </div>
 
             <div className="animate-scale-in">
