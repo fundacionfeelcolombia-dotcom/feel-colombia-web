@@ -36,12 +36,12 @@ const Navbar = () => {
             >
               Nuestro equipo
             </Link>
-            <a
-              href="#comunidad"
+            <Link
+              href="/programas"
               className="text-secondary-blue-foreground hover:text-primary transition-colors"
             >
               Nuestros programas
-            </a>
+            </Link>
             <Button
               variant="default"
               size="sm"

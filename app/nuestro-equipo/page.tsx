@@ -1,42 +1,29 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent } from "@/components/ui/card";
+import anyesonImage from "@/public/team-images/anyeson.jpeg";
+import camilaImage from "@/public/team-images/camila.jpeg";
+import eduadoImage from "@/public/team-images/eduardo.jpg";
+import Image from "next/image";
 
 const teamMembers = [
   {
-    name: "Yeison Andrés Sanabria Garavito",
-    role: "Co-fundador",
-    initials: "YS",
-    avatar: "/placeholder.svg",
-  },
-  {
     name: "Camila de la Hoz",
-    role: "Co-fundadora",
+    role: "Cofundadora de Feel Colombia, convirtió su experiencia con la ansiedad en una misión: promover el bienestar emocional a través de proyectos que unen ciencia, tecnología y empatía.",
     initials: "CH",
-    avatar: "/placeholder.svg",
+    avatar: camilaImage,
   },
   {
-    name: "Dr. Carlos Mendoza",
-    role: "Director de Psicología",
+    name: "Anyerson Pacheco",
+    role: "Psicólogo e investigador en intervención psicosocial y contextos vulnerables. Director de proyectos de transformación y reconocido como Joven Investigador por MinCiencias.",
+    initials: "AP",
+    avatar: anyesonImage,
+  },
+
+  {
+    name: "Andrés Eduardo Zarabanda Ducuara",
+    role: "Psicólogo, magíster en Psicología Clínica e Intervención en Crisis.",
     initials: "CM",
-    avatar: "/placeholder.svg",
-  },
-  {
-    name: "Ana María Torres",
-    role: "Líder de Innovación",
-    initials: "AT",
-    avatar: "/placeholder.svg",
-  },
-  {
-    name: "Santiago Ruiz",
-    role: "Director de Tecnología",
-    initials: "SR",
-    avatar: "/placeholder.svg",
-  },
-  {
-    name: "Laura Gómez",
-    role: "Coordinadora de Comunidad",
-    initials: "LG",
-    avatar: "/placeholder.svg",
+    avatar: eduadoImage,
   },
 ];
 
@@ -107,11 +94,12 @@ const OurTeam = () => {
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   <CardContent className="p-6 flex flex-col items-center text-center">
-                    <Avatar className="w-24 h-24 mb-4">
-                      <AvatarImage src={member.avatar} alt={member.name} />
-                      <AvatarFallback className="bg-gray-100 text-secondary-blue text-xl">
-                        {member.initials}
-                      </AvatarFallback>
+                    <Avatar className="w-32 h-32 mb-4">
+                      <Image
+                        src={member.avatar}
+                        alt={member.name}
+                        className="w-full h-full object-cover"
+                      />
                     </Avatar>
                     <h3 className="text-lg font-semibold text-secondary-blue mb-2">
                       {member.name}
