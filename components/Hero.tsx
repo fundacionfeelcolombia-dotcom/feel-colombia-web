@@ -1,7 +1,8 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
 import imgLanding from "@/public/images/img-landing.jpg";
+import { ArrowRight } from "lucide-react";
 import Image from "next/image";
+import "./hero.css";
 
 export const Hero = () => {
   return (
@@ -13,7 +14,9 @@ export const Hero = () => {
           "linear-gradient(135deg, hsl(197 72% 60% / 0.1), hsl(45 98% 59% / 0.1))",
       }}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="diagonal-stripes"></div>
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 ">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6 sm:space-y-8 animate-fade-in">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-secondary-blue">

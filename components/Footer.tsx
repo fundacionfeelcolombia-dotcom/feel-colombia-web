@@ -18,8 +18,9 @@ export const Footer = () => {
               <span className="text-2xl font-bold text-primary">COLOMBIA</span>
             </div>
             <p className="text-secondary-blue-foreground mb-6 max-w-md">
-              Plataforma de salud mental y bienestar emocional para niños y
-              jóvenes. Innovación social al servicio de las nuevas generaciones.
+              Organización sin ánimo de lucro comprometida con transformar la
+              salud emocional en Colombia, reduciendo la ansiedad y la depresión
+              a través de iniciativas de innovación social con impacto real.
             </p>
             <div className="flex gap-4">
               <a
