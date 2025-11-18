@@ -1,5 +1,6 @@
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Avatar } from "@/components/ui/avatar";
 import { Card, CardContent } from "@/components/ui/card";
+import andresImage from "@/public/team-images/andres-image.jpeg";
 import anyesonImage from "@/public/team-images/anyeson.jpeg";
 import camilaImage from "@/public/team-images/camila.jpeg";
 import eduadoImage from "@/public/team-images/eduardo.jpg";
@@ -25,20 +26,28 @@ const teamMembers = [
     initials: "CM",
     avatar: eduadoImage,
   },
+  {
+    name: "Andrés Sanabria",
+    role: "Cofundador de Feel Colombia y un pilar clave en el diseño de nuestras acciones sociales y programas comunitarios. Su trabajo nace de su trabajo por redes sociales  acompañando a personas en crisis emocionales, donde identificó la urgencia de crear espacios seguros para quienes atraviesan ansiedad, rupturas afectivas o señales tempranas de riesgo. Desde su formación como administrador público, integra su experiencia en territorio con una visión humana y práctica, fortaleciendo iniciativas como Synha Lab y los programas presenciales de Feel Colombia.",
+    initials: "AS",
+    avatar: andresImage,
+  },
 ];
 
 const OurTeam = () => {
   return (
     <div className="min-h-screen bg-background">
-      <main className="pt-20">
+      <main className="pt-16 md:pt-20">
         {/* Hero Section */}
         <section
-          className="py-16 sm:py-24 px-4 bg-gradient-hero"
+          className="py-16 sm:py-24 px-4 bg-gradient-hero overflow-hidden"
           style={{
             background:
               "linear-gradient(135deg, hsl(197 72% 60% / 0.1), hsl(45 98% 59% / 0.1))",
           }}
         >
+          <div className="diagonal-stripes"></div>
+
           <div className="container mx-auto max-w-4xl text-center">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-secondary-blue mb-6 animate-fade-in">
               Nuestro equipo

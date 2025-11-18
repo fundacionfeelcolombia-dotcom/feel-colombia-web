@@ -20,9 +20,9 @@ const categories = [
   },
   {
     id: "providers",
-    title: "Proveedores de Cuidado",
+    title: "Colegios",
     description:
-      "Recursos, apoyo y capacitación para mejorar la calidad del cuidado infantil en nuestra comunidad.",
+      "Apoyando a educadores y cuidadores con desarrollo profesional.",
     image: "/educadores-cuidadores-ense-anza-infantil.jpg",
     overlay: "from-blue-600/80 to-cyan-600/60",
   },

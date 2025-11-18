@@ -87,8 +87,8 @@ export const Footer = () => {
           <div>
             <h3 className="font-semibold text-secondary-blue mb-4">Contacto</h3>
             <ul className="space-y-3 text-secondary-blue-foreground">
-              <li>info@feelcolombia.org</li>
-              <li>+57 (1) 234 5678</li>
+              <li>Proyectos@fundacionfeelcolombia.org</li>
+              <li>+57 321 5459582</li>
               <li>Bogotá, Colombia</li>
             </ul>
           </div>

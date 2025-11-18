@@ -12,7 +12,8 @@ const Navbar = () => {
     { label: "Inicio", href: "/" },
     { label: "Quiénes somos", href: "/quienes-somos" },
     { label: "Nuestro equipo", href: "/nuestro-equipo" },
-    { label: "Nuestros programas", href: "/programas" },
+    { label: "Programas", href: "/programas" },
+    { label: "Cómo ayudar", href: "/como-ayudar" },
   ];
 
   return (

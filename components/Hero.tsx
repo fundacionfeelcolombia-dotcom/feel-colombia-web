@@ -2,9 +2,14 @@ import { Button } from "@/components/ui/button";
 import imgLanding from "@/public/images/img-landing.jpg";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
-import "./hero.css";
+import Link from "next/link";
+import { redirect } from "next/navigation";
 
 export const Hero = () => {
+  const redirectPrograms = () => {
+    redirect("/programas");
+  };
+
   return (
     <section
       id="inicio"
@@ -33,7 +38,7 @@ export const Hero = () => {
                 {" "}
                 bienestar emocional{" "}
               </span>
-              de niños y jóvenes
+              de la población colombiana
             </h1>
             <p className="text-lg sm:text-xl text-secondary-blue-foreground leading-relaxed">
               Una plataforma innovadora que une tecnología, educación y apoyo
@@ -41,20 +46,13 @@ export const Hero = () => {
               las nuevas generaciones.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button
-                size="lg"
-                className="btn-gradient text-lg group cursor-pointer"
+              <Link
+                href="/programas"
+                className="flex items-center bg-primary px-6 py-3 rounded-md text-white h-10"
               >
-                Explorar recursos
+                Explora nuestros programas
                 <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="text-lg text-secondary-blue-foreground hover:bg-secondary-blue/10 cursor-pointer"
-              >
-                Únete a la comunidad
-              </Button>
+              </Link>
             </div>
             <div className="flex items-center gap-8 pt-4">
               <div>

@@ -142,3 +142,86 @@ body {
 @utility animate-fade-in {
   animation: fade-in 0.4s ease-out forwards;
 }
+
+/* ================================================= */
+/* ESTILOS POR DEFECTO (Escritorio/Pantallas Grandes) */
+/* ================================================= */
+.diagonal-stripes {
+  /* Propiedades del Contenedor (Se mantienen) */
+  width: 400px;
+  height: 600px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  overflow: hidden;
+  z-index: 0;
+
+  background-repeat: no-repeat;
+
+  background-image: linear-gradient(
+    -135deg,
+    /* Ángulo ajustado para la rotación deseada */
+      /* 1. Espacio Transparente (inicia las líneas más tarde) */ transparent 0,
+    transparent 200px,
+
+    /* 2. Raya Cian (40px de ancho) */ #004666 200px,
+    #004666 240px,
+
+    /* 3. Separación Blanca (10px de ancho) */ #ffffff 240px,
+    #ffffff 250px,
+
+    /* 4. Raya Verde Azulado (40px de ancho) */ #4db6e2 250px,
+    #4db6e2 290px,
+
+    /* 5. Separación Blanca (10px de ancho) */ #ffffff 290px,
+    #ffffff 300px,
+
+    /* 6. Raya Amarilla (40px de ancho) */ oklch(0.85 0.16 70) 300px,
+    oklch(0.85 0.16 70) 340px,
+
+    /* 7. Espacio Transparente (el resto del contenedor) */ transparent 340px,
+    transparent 100%
+  );
+}
+
+/* ---------------------------------------------------------------------- */
+/* MEDIA QUERY (Estilos para Pantallas Pequeñas - Máx. 767px de ancho)    */
+/* ---------------------------------------------------------------------- */
+@media (max-width: 767px) {
+  .diagonal-stripes {
+    /* Ajustamos el tamaño del contenedor si es necesario */
+    width: 175px;
+    height: 275px;
+
+    background-image: linear-gradient(
+      -135deg,
+      /* Las rayas son medianas: 15px de color, 4px de separación */
+        /* 1. Espacio Transparente (ajustado para la nueva posición y tamaño) */
+        transparent 0,
+      transparent 90px,
+
+      /* Ajustado para mover las líneas */
+        /* 2. Raya Cian (AHORA 15px de ancho) */ #004666 90px,
+      #004666 105px,
+
+      /* 90px a 105px = 15px */ /* 3. Separación Blanca (AHORA 4px de ancho) */
+        #ffffff 105px,
+      #ffffff 109px,
+
+      /* 105px a 109px = 4px */
+        /* 4. Raya Verde Azulado (AHORA 15px de ancho) */ #4db6e2 109px,
+      #4db6e2 124px,
+
+      /* 109px a 124px = 15px */ /* 5. Separación Blanca (AHORA 4px de ancho) */
+        #ffffff 124px,
+      #ffffff 128px,
+
+      /* 124px a 128px = 4px */ /* 6. Raya Amarilla (AHORA 15px de ancho) */
+        oklch(0.85 0.16 70) 128px,
+      oklch(0.85 0.16 70) 143px,
+
+      /* 128px a 143px = 15px */ /* 7. Espacio Transparente */ transparent 143px,
+      /* Fin del patrón */ transparent 100%
+    );
+  }
+}

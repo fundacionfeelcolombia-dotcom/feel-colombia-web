@@ -37,7 +37,8 @@ const jsonPrograms = [
 const ProgramsPage = () => {
   return (
     <div className="min-h-screen bg-background">
-      <main className="pt-20">
+      <div className="diagonal-stripes"></div>
+      <main className="pt-16 md:pt-20">
         {/* Hero Section */}
         <section
           className="py-16 sm:py-24 px-4 bg-gradient-hero"

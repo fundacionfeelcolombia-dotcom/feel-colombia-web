@@ -208,6 +208,8 @@ const PageDetailProgram = async ({ params }: ProgramPageProps) => {
 
   return (
     <div className="min-h-screen bg-background">
+      <div className="diagonal-stripes"></div>
+
       {/* Hero Banner */}
       <section
         className="relative pt-32 pb-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-primary/10 via-secondary/10 to-background overflow-hidden"

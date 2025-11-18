@@ -14,6 +14,8 @@ import Link from "next/link";
 const WhoWeArePage = () => {
   return (
     <div className="min-h-screen bg-background">
+      <div className="diagonal-stripes"></div>
+
       {/* Hero Section */}
       <section className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
