@@ -28,7 +28,7 @@ export const EventsHomePage = () => {
             <div className="space-y-8">
               <div>
                 <h2 className="text-3xl sm:text-3xl lg:text-4xl font-bold mb-4 text-secondary-blue ">
-                  Campañas relámpago
+                  Campaña relámpago
                   <span
                     style={{
                       background:
@@ -39,7 +39,7 @@ export const EventsHomePage = () => {
                     }}
                   >
                     {" "}
-                    por una causa 2025
+                    impulsa una sonrisa
                   </span>
                 </h2>
 

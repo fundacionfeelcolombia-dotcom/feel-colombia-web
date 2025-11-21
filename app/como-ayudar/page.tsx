@@ -269,7 +269,15 @@ const HowCanHelp = () => {
               size="lg"
               className="bg-primary hover:bg-primary/90 text-white cursor-pointer font-semibold"
             >
-              Comienza tu aporte hoy
+              <a
+                href="https://mail.google.com/mail/?view=cm&to=proyectos@fundacionfeelcolombia.org"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white"
+              >
+                {" "}
+                Comienza tu aporte hoy
+              </a>
             </Button>
           </div>
         </section>

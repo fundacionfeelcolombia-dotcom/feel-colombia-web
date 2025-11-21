@@ -1,9 +1,11 @@
 "use client";
 
-import { useState } from "react";
-import { Menu, X, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import iconLogo from "@/public/images/icon-feel.png";
+import { Menu, X } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,18 +19,16 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 sm:h-20">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border h-[100px]">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 bg-background/95">
+        <div className="flex items-center justify-between h-[100px] ">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group">
-            <span className="text-xl sm:text-2xl font-semibold text-foreground">
-              feel
-            </span>
-            <Heart className="w-5 h-5 sm:w-6 sm:h-6 fill-accent text-accent transition-transform group-hover:scale-110" />
-            <span className="text-xl sm:text-2xl font-bold text-primary">
-              COLOMBIA
-            </span>
+          <Link href="/" className="flex items-center gap-2 group h-[100px]">
+            <Image
+              src={iconLogo}
+              alt="Feel Colombia Logo"
+              className="w-[170px] object-contain"
+            />
           </Link>
 
           {/* Desktop menu */}
@@ -80,9 +80,14 @@ const Navbar = () => {
             ))}
 
             <div className="px-4 pt-2">
-              <Button className="w-full bg-primary hover:bg-primary/90 text-white rounded-full">
-                Contacto
-              </Button>
+              <Link href="/contacto">
+                <Button
+                  className="w-full bg-primary hover:bg-primary/90 text-white rounded-full"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Contacto
+                </Button>
+              </Link>
             </div>
           </div>
         )}

@@ -5,8 +5,8 @@ import collage1Image from "@/public/images/collage-1.jpg";
 import collage2Image from "@/public/images/collage-2.jpg";
 import collage3Image from "@/public/images/collage-3.jpg";
 import collage4Image from "@/public/images/collage-4.jpg";
-import peopleExperience from "@/public/images/people-experience.jpg";
 import communityIntervention from "@/public/images/community-intervention.jpg";
+import peopleExperience from "@/public/images/people-experience.jpg";
 import { Heart, Target } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -33,16 +33,6 @@ const WhoWeArePage = () => {
                 mental, poniendo al ser humano y su historia en el centro de
                 todo.
               </p>
-              <Link
-                href="/programas/synha-lab"
-                className="hover:opacity-90 transition-opacity cursor-pointer text-white px-4 py-2 rounded-md"
-                style={{
-                  background:
-                    "linear-gradient(135deg, hsl(197 100% 44%), hsl(197 72% 60%))",
-                }}
-              >
-                Descubre Synha Lab
-              </Link>
             </div>
 
             <div className="animate-scale-in">
@@ -257,7 +247,7 @@ const WhoWeArePage = () => {
               variant="secondary"
               className="bg-white text-deep-blue hover:bg-white/90 cursor-pointer"
             >
-              Contáctanos
+              <Link href="/contacto">Contáctanos</Link>
             </Button>
           </div>
         </div>

@@ -1,5 +1,7 @@
 import { Heart } from "lucide-react";
 import Link from "next/link";
+import iconLogo from "@/public/images/icon-feel.png";
+import Image from "next/image";
 
 const navItems = [
   { label: "Inicio", href: "/" },
@@ -19,12 +21,17 @@ export const Footer = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-4 gap-8 mb-12">
           <div className="md:col-span-2">
-            <div className="flex items-center gap-2 mb-4">
-              <span className="text-2xl font-semibold text-foreground">
-                feel
-              </span>
-              <Heart className="w-6 h-6 fill-accent text-accent" />
-              <span className="text-2xl font-bold text-primary">COLOMBIA</span>
+            <div className="flex items-center gap-2 mb-5">
+              <Link
+                href="/"
+                className="flex items-center gap-2 group h-[100px]"
+              >
+                <Image
+                  src={iconLogo}
+                  alt="Feel Colombia Logo"
+                  className="w-[250px] object-contain"
+                />
+              </Link>
             </div>
             <p className="text-secondary-blue-foreground mb-6 max-w-md">
               Organización sin ánimo de lucro comprometida con transformar la

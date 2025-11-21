@@ -244,8 +244,12 @@ const PageDetailProgram = async ({ params }: ProgramPageProps) => {
             <p className="text-lg md:text-xl text-primary font-semibold mb-8">
               {findProgram.phraseCover}
             </p>
-            <Button size="lg" asChild className="text-white">
-              <a href="mailto:proyectos@fundacionfeelcolombia.org">
+            <Button size="lg" className="text-white">
+              <a
+                href="https://mail.google.com/mail/?view=cm&to=proyectos@fundacionfeelcolombia.org"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 {findProgram.buttonText}
               </a>
             </Button>
@@ -560,9 +564,11 @@ const PageDetailProgram = async ({ params }: ProgramPageProps) => {
               proyectos@fundacionfeelcolombia.org
             </a>
           </div>
-          <Button size="lg" asChild>
+          <Button size="lg">
             <a
-              href="mailto:proyectos@fundacionfeelcolombia.org"
+              href="https://mail.google.com/mail/?view=cm&to=proyectos@fundacionfeelcolombia.org"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-white"
             >
               {findProgram.infoContact.buttonText}

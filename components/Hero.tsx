@@ -13,7 +13,7 @@ export const Hero = () => {
   return (
     <section
       id="inicio"
-      className="relative pt-24 sm:pt-32 pb-16 sm:pb-24 bg-gradient-hero overflow-hidden"
+      className="relative pt-32 sm:pt-32 pb-16 sm:pb-24 bg-gradient-hero overflow-hidden"
       style={{
         background:
           "linear-gradient(135deg, hsl(197 72% 60% / 0.1), hsl(45 98% 59% / 0.1))",

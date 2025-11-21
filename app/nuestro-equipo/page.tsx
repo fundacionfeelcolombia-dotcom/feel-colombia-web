@@ -9,13 +9,13 @@ import Image from "next/image";
 const teamMembers = [
   {
     name: "Camila de la Hoz",
-    role: "Cofundadora de Feel Colombia, convirtió su experiencia con la ansiedad en una misión: promover el bienestar emocional a través de proyectos que unen ciencia, tecnología y empatía.",
+    role: "Fundadora de Feel Colombia, convirtió su experiencia con la ansiedad en una misión: promover el bienestar emocional a través de proyectos que unen ciencia, tecnología y empatía.",
     initials: "CH",
     avatar: camilaImage,
   },
   {
     name: "Andrés Sanabria",
-    role: "Cofundador de Feel Colombia y referente en nuestras acciones sociales. Su experiencia acompañando personas en crisis emocionales motivó la creación de espacios seguros para quienes enfrentan ansiedad o rupturas afectivas. Desde su formación en administración pública aporta una visión humana que impulsa iniciativas como Synha Lab y los programas presenciales.",
+    role: "Fundador de Feel Colombia y referente en nuestras acciones sociales. Su experiencia acompañando personas en crisis emocionales motivó la creación de espacios seguros para quienes enfrentan ansiedad o rupturas afectivas. Desde su formación en administración pública aporta una visión humana que impulsa iniciativas como Synha Lab y los programas presenciales.",
     initials: "AS",
     avatar: andresImage,
   },

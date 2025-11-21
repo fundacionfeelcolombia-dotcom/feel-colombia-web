@@ -10,7 +10,7 @@ const categories = [
     id: "parents",
     title: "Padres",
     description:
-      "Acceso a recursos gratuitos, clases de paternidad, asistencia financiera y mucho más para apoyar a tu familia.",
+      "Acceso a recursos gratuitos, clases de paternidad, asistencia psicosocial y mucho más para acompañar y fortalecer a tu familia.",
     image: familyImage,
     overlay: "from-rose-600/80 to-pink-600/60",
   },
