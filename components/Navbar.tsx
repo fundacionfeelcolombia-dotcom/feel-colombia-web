@@ -20,8 +20,8 @@ const Navbar = () => {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border h-[100px]">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 bg-background/95">
-        <div className="flex items-center justify-between h-[100px] ">
+      <div className="container mx-auto px-0 sm:px-6 lg:px-8 ">
+        <div className="flex items-center justify-between h-[100px] px-4">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group h-[100px]">
             <Image
@@ -67,7 +67,7 @@ const Navbar = () => {
 
         {/* Mobile Sidebar */}
         {isOpen && (
-          <div className="md:hidden pb-4 border-t border-border space-y-2 animate-in fade-in slide-in-from-top-2">
+          <div className="md:hidden pb-4 border-t border-border space-y-2 animate-in fade-in slide-in-from-top-2 bg-background/95 backdrop-blur-md px-4">
             {navItems.map((item) => (
               <Link
                 key={item.label}
