@@ -1,5 +1,7 @@
 import { Button } from "@/components/ui/button";
-import experienceEducativeImage from "@/public/images/experience-educative.jpg";
+import counselingImage from "@/public/images/services/counseling.jpg";
+import familyImage from "@/public/images/services/family-enjoying.jpg";
+import safePlaceImageImage from "@/public/images/services/safe-place.jpg";
 import Image from "next/image";
 
 const services = [
@@ -10,7 +12,7 @@ const services = [
       "Donde podrás conversar de manera anónima sobre tu bienestar emocional. Escríbenos al correo fundacionfeelcolombia@gmail.com con la palabra SAFE en el asunto. Recibirás una respuesta con pasos prácticos y orientación clave para ayudarte a afrontar la situación que estás viviendo.",
     cta: "Conoce más",
     bgColor: "bg-[#E91E8C]",
-    image: "/joven-feliz-contra-muro-colorido-arte-urbano.jpg",
+    image: safePlaceImageImage,
     imagePosition: "left",
   },
   {
@@ -20,7 +22,7 @@ const services = [
       "La terapia familiar es un recurso fundamental para acompañar a familias que atraviesan miedos, tensiones o preocupaciones. Nuestro equipo está disponible para brindarte apoyo sin ningún costo.",
     cta: "Más información",
     bgColor: "bg-[#24C4A8]",
-    image: "/madre-e-hijo-juntos-momentos-felices-familia.jpg",
+    image: familyImage,
     imagePosition: "right",
   },
   {
@@ -30,7 +32,7 @@ const services = [
       "Si estás viviendo una situación particular, o haces parte de una población vulnerable o migrante, tu asesoría será completamente gratuita.",
     cta: "Conoce más",
     bgColor: "bg-[#0066CC]",
-    image: "/personas-en-capacitaci-n-profesional-desarrollo.jpg",
+    image: counselingImage,
     imagePosition: "left",
   },
 ];
@@ -58,7 +60,7 @@ export const ServicesHomePage = () => {
                 }`}
               >
                 <Image
-                  src={experienceEducativeImage}
+                  src={service.image}
                   alt={service.title}
                   className="w-full h-full object-cover"
                 />

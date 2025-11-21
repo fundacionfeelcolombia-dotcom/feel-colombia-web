@@ -1,4 +1,5 @@
-import imgLanding from "@/public/images/img-landing.jpg";
+import donation from "@/public/images/donation.jpg";
+import donationCyclie from "@/public/images/donation-cycle.jpg";
 import { Calendar, Clock, Users } from "lucide-react";
 import Image from "next/image";
 
@@ -12,12 +13,12 @@ export const EventsHomePage = () => {
             <div className="relative group   flex-col gap-y-6 hidden lg:flex">
               <div className="absolute -inset-1 text-secondary-blue rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-300" />
               <Image
-                src={imgLanding}
+                src={donation}
                 alt="Evento Elegancia 2025"
                 className="relative w-full h-auto rounded-2xl object-cover shadow-2xl"
               />
               <Image
-                src={imgLanding}
+                src={donationCyclie}
                 alt="Evento Elegancia 2025"
                 className="relative w-full h-auto rounded-2xl object-cover shadow-2xl"
               />
@@ -43,8 +44,8 @@ export const EventsHomePage = () => {
                 </h2>
 
                 <p className="text-muted-foreground text-lg leading-relaxed">
-                  Una experiencia única para celebrar nuestro impacto
-                  comunitario
+                  Impulsa una Sonrisa: Jornada de Donación y Bienestar
+                  Comunitario
                 </p>
               </div>
 
@@ -66,23 +67,9 @@ export const EventsHomePage = () => {
                   <Clock className="w-6 h-6 text-secondary-blue flex-shrink-0 mt-1" />
                   <div>
                     <p className="font-semibold text-secondary-blue">
-                      6:00 PM - 10:00 PM
+                      10:00 AM
                     </p>
-                    <p className="text-muted-foreground text-sm">
-                      Una velada de celebración y conexión
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex gap-4 items-start">
-                  <Users className="w-6 h-6 text-secondary-blue flex-shrink-0 mt-1" />
-                  <div>
-                    <p className="font-semibold text-secondary-blue">
-                      Experiencia Exclusiva
-                    </p>
-                    <p className="text-muted-foreground text-sm">
-                      Evento privado con vista a la ciudad
-                    </p>
+                    <p className="text-muted-foreground text-sm">Evento</p>
                   </div>
                 </div>
               </div>
@@ -90,26 +77,17 @@ export const EventsHomePage = () => {
               {/* Description */}
               <div className="space-y-4 pt-4 border-t border-border">
                 <p className="text-secondary-blue-foreground leading-relaxed">
-                  La{" "}
-                  <span className="font-semibold">
-                    Tercera Edición de Noche de Gala
-                  </span>{" "}
-                  es un evento único de recaudación de fondos organizado por
-                  nuestros patrocinadores principales.
+                  <span className="font-semibold">Impulsa una Sonrisa</span>{" "}
                 </p>
 
                 <p className="text-secondary-blue-foreground leading-relaxed">
-                  Este año recaudamos fondos para apoyar a familias jóvenes y
-                  proveedores de cuidado infantil en toda nuestra comunidad.
-                </p>
-
-                <p className="text-secondary-blue-foreground leading-relaxed">
-                  En verdadero espíritu de misterio, la ubicación es secreto
-                  (¡por ahora!), pero la única forma de descubrirla es{" "}
-                  <span className="font-semibold">
-                    comprando tus entradas hoy
-                  </span>
-                  .
+                  Te invitamos a participar en nuestro evento de donación
+                  organizado por Feel Colombia. Será una jornada dedicada a
+                  fortalecer el bienestar de padres y jóvenes a través de un
+                  taller psicoemocional, acompañado de rifas de mercado y otras
+                  actividades pensadas para la comunidad. Tu participación
+                  ayudará a seguir construyendo espacios seguros y de apoyo para
+                  quienes más lo necesitan.
                 </p>
               </div>
             </div>
@@ -117,12 +95,12 @@ export const EventsHomePage = () => {
             <div className="relative group   flex-col gap-y-6 flex lg:hidden">
               <div className="absolute -inset-1 text-secondary-blue rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-300" />
               <Image
-                src={imgLanding}
+                src={donation}
                 alt="Evento Elegancia 2025"
                 className="relative w-full h-auto rounded-2xl object-cover shadow-2xl"
               />
               <Image
-                src={imgLanding}
+                src={donationCyclie}
                 alt="Evento Elegancia 2025"
                 className="relative w-full h-auto rounded-2xl object-cover shadow-2xl"
               />

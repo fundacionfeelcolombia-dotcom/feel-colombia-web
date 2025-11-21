@@ -1,5 +1,9 @@
 import Image from "next/image";
 import experienceEducativeImage from "@/public/images/experience-educative.jpg";
+import empresasImage from "@/public/images/empresas.jpg";
+import familyImage from "@/public/images/familia.jpg";
+import youngsImages from "@/public/images/jovenes.jpg";
+import kidsImage from "@/public/images/kids-playing.jpg";
 
 const categories = [
   {
@@ -7,7 +11,7 @@ const categories = [
     title: "Padres",
     description:
       "Acceso a recursos gratuitos, clases de paternidad, asistencia financiera y mucho más para apoyar a tu familia.",
-    image: "/padre-e-hijo-sonriendo-familia-feliz.jpg",
+    image: familyImage,
     overlay: "from-rose-600/80 to-pink-600/60",
   },
   {
@@ -15,7 +19,7 @@ const categories = [
     title: "Jóvenes",
     description:
       "Desde desarrollo laboral hasta Calle Segura y alcance comunitario, estamos aquí para ti en cada paso.",
-    image: "/j-venes-sonriendo-comunidad.jpg",
+    image: youngsImages,
     overlay: "from-purple-600/80 to-indigo-600/60",
   },
   {
@@ -23,7 +27,7 @@ const categories = [
     title: "Colegios",
     description:
       "Apoyando a educadores y cuidadores con desarrollo profesional.",
-    image: "/educadores-cuidadores-ense-anza-infantil.jpg",
+    image: kidsImage,
     overlay: "from-blue-600/80 to-cyan-600/60",
   },
   {
@@ -31,7 +35,7 @@ const categories = [
     title: "Empresas",
     description:
       "Nos enorgullece servir a esta comunidad y sus empresas que apoyan a las familias.",
-    image: "/oficina-profesional-negocios-ciudad.jpg",
+    image: empresasImage,
     overlay: "from-teal-600/80 to-emerald-600/60",
   },
 ];
@@ -57,7 +61,7 @@ export const WhoWeServe = () => {
             >
               {/* Background Image */}
               <Image
-                src={experienceEducativeImage}
+                src={category.image}
                 alt={category.title}
                 className="absolute inset-0 w-full h-full object-cover group-hover:scale-100 transition-transform duration-300"
               />

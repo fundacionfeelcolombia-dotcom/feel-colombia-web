@@ -1,5 +1,14 @@
-import { Facebook, Heart, Instagram, Twitter, Youtube } from "lucide-react";
+import { Heart } from "lucide-react";
 import Link from "next/link";
+
+const navItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Quiénes somos", href: "/quienes-somos" },
+  { label: "Nuestro equipo", href: "/nuestro-equipo" },
+  { label: "Programas", href: "/programas" },
+  { label: "Cómo ayudar", href: "/como-ayudar" },
+  { label: "Contacto", href: "/contacto" },
+];
 
 export const Footer = () => {
   return (
@@ -22,7 +31,7 @@ export const Footer = () => {
               salud emocional en Colombia, reduciendo la ansiedad y la depresión
               a través de iniciativas de innovación social con impacto real.
             </p>
-            <div className="flex gap-4">
+            {/* <div className="flex gap-4">
               <a
                 href="#"
                 className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center hover:bg-primary/20 transition-colors"
@@ -51,36 +60,22 @@ export const Footer = () => {
               >
                 <Youtube className="w-5 h-5 text-primary" />
               </a>
-            </div>
+            </div> */}
           </div>
 
           <div>
             <h3 className="font-semibold text-secondary-blue mb-4">Enlaces</h3>
             <ul className="space-y-3">
-              <li>
-                <Link
-                  href="/"
-                  className="text-secondary-blue-foreground hover:text-primary transition-colors"
-                >
-                  Inicio
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/quienes-somos"
-                  className="text-secondary-blue-foreground hover:text-primary transition-colors"
-                >
-                  Quiénes somos
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/nuestro-equipo"
-                  className="text-secondary-blue-foreground hover:text-primary transition-colors"
-                >
-                  Nuestro equipo
-                </Link>
-              </li>
+              {navItems.map((item) => (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    className="text-secondary-blue-foreground hover:text-primary transition-colors"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 

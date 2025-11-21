@@ -14,6 +14,12 @@ const teamMembers = [
     avatar: camilaImage,
   },
   {
+    name: "Andrés Sanabria",
+    role: "Cofundador de Feel Colombia y referente en nuestras acciones sociales. Su experiencia acompañando personas en crisis emocionales motivó la creación de espacios seguros para quienes enfrentan ansiedad o rupturas afectivas. Desde su formación en administración pública aporta una visión humana que impulsa iniciativas como Synha Lab y los programas presenciales.",
+    initials: "AS",
+    avatar: andresImage,
+  },
+  {
     name: "Anyerson Pacheco",
     role: "Psicólogo e investigador en intervención psicosocial y contextos vulnerables. Director de proyectos de transformación y reconocido como Joven Investigador por MinCiencias.",
     initials: "AP",
@@ -25,12 +31,6 @@ const teamMembers = [
     role: "Psicólogo, magíster en Psicología Clínica e Intervención en Crisis.",
     initials: "CM",
     avatar: eduadoImage,
-  },
-  {
-    name: "Andrés Sanabria",
-    role: "Cofundador de Feel Colombia y un pilar clave en el diseño de nuestras acciones sociales y programas comunitarios. Su trabajo nace de su trabajo por redes sociales  acompañando a personas en crisis emocionales, donde identificó la urgencia de crear espacios seguros para quienes atraviesan ansiedad, rupturas afectivas o señales tempranas de riesgo. Desde su formación como administrador público, integra su experiencia en territorio con una visión humana y práctica, fortaleciendo iniciativas como Synha Lab y los programas presenciales de Feel Colombia.",
-    initials: "AS",
-    avatar: andresImage,
   },
 ];
 

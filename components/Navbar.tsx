@@ -43,13 +43,15 @@ const Navbar = () => {
               </Link>
             ))}
 
-            <Button
-              variant="default"
-              size="sm"
-              className="text-white cursor-pointer"
-            >
-              Contacto
-            </Button>
+            <Link href="/contacto">
+              <Button
+                variant="default"
+                size="sm"
+                className="text-white cursor-pointer"
+              >
+                Contacto
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile button */}

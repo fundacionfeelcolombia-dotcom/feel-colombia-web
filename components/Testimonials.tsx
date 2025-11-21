@@ -73,6 +73,9 @@ export const Testimonials = () => {
           ))}
         </div>
       </div>
+      <div className="w-full bg-secondary-blue h-[10px] mt-[80px]"></div>
+      <div className="w-full bg-primary h-[10px] "></div>
+      <div className="w-full bg-accent h-[10px]"></div>
     </section>
   );
 };
