@@ -1,14 +1,18 @@
-import { Button } from "@/components/ui/button";
 import imgLanding from "@/public/images/img-landing.jpg";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 
-export const Hero = () => {
-  const redirectPrograms = () => {
-    redirect("/programas");
-  };
+interface HeroProps {
+  cover: string;
+  textCover: string;
+}
+
+export const Hero: React.FC<HeroProps> = ({ cover, textCover }) => {
+  const splitIndex = Math.floor(cover.length / 2);
+  const firstHalf = cover.slice(0, splitIndex);
+  const secondHalf = cover.slice(splitIndex);
 
   return (
     <section
@@ -25,7 +29,7 @@ export const Hero = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6 sm:space-y-8 animate-fade-in">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-secondary-blue">
-              Conectamos con el
+              {firstHalf}
               <span
                 style={{
                   background:
@@ -36,14 +40,11 @@ export const Hero = () => {
                 }}
               >
                 {" "}
-                bienestar emocional{" "}
+                {secondHalf}
               </span>
-              de la población colombiana
             </h1>
             <p className="text-lg sm:text-xl text-secondary-blue-foreground leading-relaxed">
-              Una plataforma innovadora que une tecnología, educación y apoyo
-              emocional para construir un futuro más saludable y conectado para
-              las nuevas generaciones.
+              {textCover}
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link

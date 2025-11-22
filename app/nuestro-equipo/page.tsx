@@ -1,40 +1,19 @@
+/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Avatar } from "@/components/ui/avatar";
 import { Card, CardContent } from "@/components/ui/card";
-import andresImage from "@/public/team-images/andres-image.jpeg";
-import anyesonImage from "@/public/team-images/anyeson.jpeg";
-import camilaImage from "@/public/team-images/camila.jpeg";
-import eduadoImage from "@/public/team-images/eduardo.jpg";
-import Image from "next/image";
+import { getTeam } from "@/lib/strapi";
 
-const teamMembers = [
-  {
-    name: "Camila de la Hoz",
-    role: "Fundadora de Feel Colombia, convirtió su experiencia con la ansiedad en una misión: promover el bienestar emocional a través de proyectos que unen ciencia, tecnología y empatía.",
-    initials: "CH",
-    avatar: camilaImage,
-  },
-  {
-    name: "Andrés Sanabria",
-    role: "Fundador de Feel Colombia y referente en nuestras acciones sociales. Su experiencia acompañando personas en crisis emocionales motivó la creación de espacios seguros para quienes enfrentan ansiedad o rupturas afectivas. Desde su formación en administración pública aporta una visión humana que impulsa iniciativas como Synha Lab y los programas presenciales.",
-    initials: "AS",
-    avatar: andresImage,
-  },
-  {
-    name: "Anyerson Pacheco",
-    role: "Psicólogo e investigador en intervención psicosocial y contextos vulnerables. Director de proyectos de transformación y reconocido como Joven Investigador por MinCiencias.",
-    initials: "AP",
-    avatar: anyesonImage,
-  },
+export async function generateMetadata() {
+  const strapiData = await getTeam(); // 1.
+  return strapiData;
+}
 
-  {
-    name: "Andrés Eduardo Zarabanda Ducuara",
-    role: "Psicólogo, magíster en Psicología Clínica e Intervención en Crisis.",
-    initials: "CM",
-    avatar: eduadoImage,
-  },
-];
+const OurTeam = async () => {
+  const strapiData = await getTeam(); // 2.
 
-const OurTeam = () => {
+  const { team, history, phrase } = strapiData || {};
+
   return (
     <div className="min-h-screen bg-background">
       <main className="pt-16 md:pt-20">
@@ -64,25 +43,10 @@ const OurTeam = () => {
             <Card className="shadow-card animate-scale-in">
               <CardContent className="p-8 sm:p-12">
                 <p className="text-base sm:text-lg text-secondary-blue/90 leading-relaxed mb-6">
-                  Feel Colombia nació del encuentro entre dos visiones
-                  complementarias: la emocional y la científica. Nuestros
-                  fundadores,{" "}
-                  <span className="font-semibold text-primary">
-                    Yeison Andrés Sanabria Garavito
-                  </span>{" "}
-                  y{" "}
-                  <span className="font-semibold text-primary">
-                    Camila de la Hoz
-                  </span>
-                  , crearon esta fundación con la convicción de que la salud
-                  mental debe vivirse con propósito, innovación y cercanía.
-                  Juntos lideran un equipo interdisciplinario que une
-                  psicología, tecnología, arte y educación para diseñar
-                  soluciones reales para el bienestar emocional.
+                  {history}
                 </p>
                 <p className="text-lg sm:text-xl font-semibold text-primary italic text-center mt-8">
-                  "Creemos en el poder de las personas para sanar, crear y
-                  transformar su historia."
+                  "{phrase}"
                 </p>
               </CardContent>
             </Card>
@@ -95,31 +59,41 @@ const OurTeam = () => {
             <h2 className="text-3xl sm:text-4xl font-bold text-center text-secondary-blue mb-12">
               Conoce a nuestro equipo
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              {teamMembers.map((member, index) => (
-                <Card
-                  key={index}
-                  className="shadow-card hover:shadow-soft transition-shadow duration-300 animate-fade-in"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  <CardContent className="p-6 flex flex-col items-center text-center">
-                    <Avatar className="w-32 h-32 mb-4">
-                      <Image
-                        src={member.avatar}
-                        alt={member.name}
-                        className="w-full h-full object-cover"
-                      />
-                    </Avatar>
-                    <h3 className="text-lg font-semibold text-secondary-blue mb-2">
-                      {member.name}
-                    </h3>
-                    <p className="text-sm text-muted-foreground">
-                      {member.role}
-                    </p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
+            {team && team?.length > 0 ? (
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                {team.map((member: any, index: number) => {
+                  return (
+                    <Card
+                      key={member.id}
+                      className="shadow-card hover:shadow-soft transition-shadow duration-300 animate-fade-in"
+                      style={{ animationDelay: `${index * 0.1}s` }}
+                    >
+                      <CardContent className="p-6 flex flex-col items-center text-center">
+                        <Avatar className="w-32 h-32 mb-4">
+                          <img
+                            src={member.img.url}
+                            alt="Evento Feel Colombia"
+                            width={500} // Dimensiones Fijas
+                            height={300} // Dimensiones Fijas
+                            className="relative w-full h-auto rounded-2xl object-cover shadow-2xl"
+                          />
+                        </Avatar>
+                        <h3 className="text-lg font-semibold text-secondary-blue mb-2">
+                          {member.fullName}
+                        </h3>
+                        <p className="text-sm text-muted-foreground">
+                          {member.career}
+                        </p>
+                      </CardContent>
+                    </Card>
+                  );
+                })}
+              </div>
+            ) : (
+              <p className="text-center text-secondary-blue">
+                No hay miembros del equipo disponibles en este momento.
+              </p>
+            )}
           </div>
         </section>
 

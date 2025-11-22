@@ -1,7 +1,8 @@
 /* eslint-disable react/no-unescaped-entities */
 import { ItemProgram } from "./components/ItemProgram";
 import experienceEducativeImage from "@/public/images/experience-educative.jpg";
-import emotionalImage from "@/public/images/emotional-well-being.jpg";
+import pulso1Image from "@/public/programs/pulso/pulso-1.jpg";
+import synaConver from "@/public/programs/syna/syna2.jpg";
 import healthInnovationLab from "@/public/images/health-innovation-lab.jpg";
 
 const jsonPrograms = [
@@ -18,7 +19,7 @@ const jsonPrograms = [
     title: "Pulso Corporativo",
     description:
       "Bienestar emocional con tecnología humana (sin apps, sin fricción). Acompañamos a los equipos de trabajo hacia una cultura de bienestar sostenible.",
-    image: emotionalImage,
+    image: pulso1Image,
     alt: "Pulso Corporativo - Bienestar laboral",
     link: "/programas/pulso-corporativo",
     id: 2,
@@ -27,7 +28,7 @@ const jsonPrograms = [
     title: "Synha Lab",
     description:
       "Laboratorio de innovación en salud mental donde la ciencia, la tecnología y la empatía se encuentran para co-crear soluciones transformadoras.",
-    image: healthInnovationLab,
+    image: synaConver,
     alt: "Synha Lab - Innovación en salud mental",
     link: "/programas/synha-lab",
     id: 3,

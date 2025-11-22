@@ -21,13 +21,26 @@ import Image from "next/image";
 import Link from "next/link";
 import experienceEducativeImage from "@/public/images/experience-educative.jpg";
 import emotionalImage from "@/public/images/emotional-well-being.jpg";
-import healthInnovationLab from "@/public/images/health-innovation-lab.jpg";
 
 import program1 from "@/public/images/collage-program-1.jpg";
 import program2 from "@/public/images/collage-program-2.jpg";
 import program3 from "@/public/images/collage-program-3.jpg";
 import program4 from "@/public/images/collage-program-4.jpg";
 import program5 from "@/public/images/collage-program-5.jpg";
+
+import pulso1Image from "@/public/programs/pulso/pulso-1.jpg";
+import pulso1Image2 from "@/public/programs/pulso/pulso-2.jpg";
+import pulso1Image3 from "@/public/programs/pulso/pulso-3.jpg";
+import pulso1Image4 from "@/public/programs/pulso/pulso-4.jpg";
+import pulso1Image5 from "@/public/programs/pulso/pulso-5.jpg";
+import pulso1Image6 from "@/public/programs/pulso/pulso-6.jpg";
+
+import syna2 from "@/public/images/health-innovation-lab.jpg";
+import synaCover from "@/public/programs/syna/syna2.jpg";
+import syna1 from "@/public/programs/syna/syna1.jpg";
+import syna3 from "@/public/programs/syna/syna3.jpg";
+import syna4 from "@/public/programs/syna/syna4.jpg";
+import syna5 from "@/public/programs/syna/syna5.jpg";
 
 interface ProgramPageProps {
   params: Promise<{ slug: string }>;
@@ -87,7 +100,10 @@ const allPrograms = [
       desc: "Si eres investigador, profesional, estudiante o simplemente alguien apasionado por la innovación en salud mental, queremos conocerte. Construyamos juntos el futuro del bienestar emocional.",
       buttonText: "Quiero colaborar con Synha Lab",
     },
-    imgCover: healthInnovationLab,
+    imgCover: synaCover,
+    imageLeft: [syna2, syna3],
+    imageCenter: [syna5],
+    imageRight: [syna4, syna1],
   },
   {
     title: "Aula Viva",
@@ -137,6 +153,9 @@ const allPrograms = [
       },
     ],
     imgCover: experienceEducativeImage,
+    imageLeft: [program1, program2],
+    imageCenter: [program5],
+    imageRight: [program4, program3],
   },
   {
     title: "Pulso Corporativo",
@@ -188,7 +207,10 @@ const allPrograms = [
       desc: "Solicita un diagnóstico gratuito de tu clima emocional y recibe un ejemplo del Feel Dashboard personalizado para tu organización.",
       buttonText: "Solicitar diagnóstico gratuito",
     },
-    imgCover: emotionalImage,
+    imgCover: pulso1Image,
+    imageLeft: [pulso1Image2, pulso1Image3],
+    imageCenter: [pulso1Image5],
+    imageRight: [pulso1Image4, pulso1Image6],
   },
 ];
 
@@ -320,30 +342,25 @@ const PageDetailProgram = async ({ params }: ProgramPageProps) => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 items-center max-w-6xl mx-auto">
           {/* Left Column - Two Images Stacked */}
           <div className="flex flex-col gap-4 md:gap-6 ">
-            {/* Top Left Image */}
-            <div className="h-64 md:h-56 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <Image
-                src={program1}
-                alt="Ilustración de bienestar emocional"
-                className="w-full h-full object-cover"
-              />
-            </div>
-
-            {/* Bottom Left Image */}
-            <div className="h-64 md:h-56 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <Image
-                src={program2}
-                alt="Ilustración de bienestar emocional"
-                className="w-full h-full object-cover"
-              />
-            </div>
+            {findProgram.imageLeft.map((img, index) => (
+              <div
+                className="h-64 md:h-56 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
+                key={index}
+              >
+                <Image
+                  src={img}
+                  alt="Ilustración de bienestar emocional"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            ))}
           </div>
 
           {/* Center - Main Large Image */}
           <div className="md:col-span-1 order-first md:order-none">
             <div className="h-full rounded-xl overflow-hidden shadow-2xl hover:shadow-2xl transition-shadow duration-300">
               <Image
-                src={program5}
+                src={findProgram.imageCenter[0]}
                 alt="Ilustración de bienestar emocional"
                 className="w-full h-full object-cover"
               />
@@ -355,7 +372,7 @@ const PageDetailProgram = async ({ params }: ProgramPageProps) => {
             {/* Top Right Image */}
             <div className="h-64 md:h-56 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
               <Image
-                src={program4}
+                src={findProgram.imageRight[0]}
                 alt="Ilustración de bienestar emocional"
                 className="w-full h-full object-cover"
               />
@@ -364,7 +381,7 @@ const PageDetailProgram = async ({ params }: ProgramPageProps) => {
             {/* Bottom Right Image */}
             <div className="h-64 md:h-56 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
               <Image
-                src={program3}
+                src={findProgram.imageRight[1]}
                 alt="Ilustración de bienestar emocional"
                 className="w-full h-full object-cover"
               />

@@ -1,7 +1,7 @@
-import { Heart } from "lucide-react";
-import Link from "next/link";
+import { getContact } from "@/lib/strapi";
 import iconLogo from "@/public/images/icon-feel.png";
 import Image from "next/image";
+import Link from "next/link";
 
 const navItems = [
   { label: "Inicio", href: "/" },
@@ -12,7 +12,15 @@ const navItems = [
   { label: "Contacto", href: "/contacto" },
 ];
 
-export const Footer = () => {
+export async function generateMetadata() {
+  const strapiData = await getContact(); // 1.
+  return strapiData;
+}
+
+export const Footer = async () => {
+  const strapiData = await getContact(); // 2.
+  const { email, phone, location } = strapiData || {};
+
   return (
     <footer
       id="contacto"
@@ -89,9 +97,9 @@ export const Footer = () => {
           <div>
             <h3 className="font-semibold text-secondary-blue mb-4">Contacto</h3>
             <ul className="space-y-3 text-secondary-blue-foreground">
-              <li>Proyectos@fundacionfeelcolombia.org</li>
-              <li>+57 321 5459582</li>
-              <li>Bogotá, Colombia</li>
+              <li>{email}</li>
+              <li>{phone}</li>
+              <li>{location}</li>
             </ul>
           </div>
         </div>

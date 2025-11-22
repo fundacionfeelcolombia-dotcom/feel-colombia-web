@@ -1,6 +1,15 @@
+import { getContact } from "@/lib/strapi";
 import { MapPin, Mail, Phone } from "lucide-react";
 
-const Contactpage = () => {
+export async function generateMetadata() {
+  const strapiData = await getContact(); // 1.
+  return strapiData;
+}
+
+const Contactpage = async () => {
+  const strapiData = await getContact(); // 2.
+  const { email, phone, location } = strapiData || {};
+
   return (
     <div
       className="min-h-screen "
@@ -38,10 +47,10 @@ const Contactpage = () => {
                       Correo
                     </h3>
                     <a
-                      href="mailto:Proyectos@fundacionfeelcolombia.org"
+                      href={`mailto:${email}`}
                       className="text-primary hover:underline break-all"
                     >
-                      Proyectos@fundacionfeelcolombia.org
+                      {email}
                     </a>
                   </div>
                 </div>
@@ -61,7 +70,7 @@ const Contactpage = () => {
                       href="tel:+573215459582"
                       className="text-primary hover:underline"
                     >
-                      +57 321 5459582
+                      {phone}
                     </a>
                   </div>
                 </div>
@@ -77,7 +86,7 @@ const Contactpage = () => {
                     <h3 className="text-lg font-semibold text-card-foreground mb-2">
                       Ubicación
                     </h3>
-                    <p className="text-muted-foreground">Bogotá, Colombia</p>
+                    <p className="text-muted-foreground">{location}</p>
                   </div>
                 </div>
               </div>

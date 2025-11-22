@@ -1,28 +1,19 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Quote } from "lucide-react";
 
-const testimonials = [
-  {
-    name: "María González",
-    age: "16 años",
-    text: "Feel Colombia me ayudó a entender que no estoy sola. Encontré una comunidad que me comprende y recursos que realmente me han ayudado a sentirme mejor.",
-    location: "Bogotá",
-  },
-  {
-    name: "Carlos Ramírez",
-    age: "14 años",
-    text: "Los recursos de la plataforma me enseñaron formas prácticas de manejar mi ansiedad. Ahora me siento más seguro para enfrentar los desafíos del día a día.",
-    location: "Medellín",
-  },
-  {
-    name: "Ana Martínez",
-    age: "17 años",
-    text: "Poder conectar con otros jóvenes que pasan por situaciones similares ha sido transformador. Aprendí que pedir ayuda es un acto de valentía.",
-    location: "Cali",
-  },
-];
+export interface StoryItem {
+  id: number;
+  story: string;
+  fullName: string;
+  city: string;
+  age: number;
+}
 
-export const Testimonials = () => {
+export interface TestimonialsProps {
+  stories: StoryItem[];
+}
+
+export const Testimonials: React.FC<TestimonialsProps> = ({ stories }) => {
   return (
     <section id="comunidad" className="py-16 sm:py-24 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -49,7 +40,7 @@ export const Testimonials = () => {
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => (
+          {stories.map((story, index) => (
             <Card
               key={index}
               className="hover-lift border-border bg-card"
@@ -58,14 +49,14 @@ export const Testimonials = () => {
               <CardContent className="p-8">
                 <Quote className="w-10 h-10 text-accent mb-6" />
                 <p className="text-muted-foreground leading-relaxed mb-6 italic">
-                  "{testimonial.text}"
+                  "{story.story}"
                 </p>
                 <div className="border-t border-border pt-4">
                   <p className="font-semibold text-secondary-blue">
-                    {testimonial.name}
+                    {story.fullName}
                   </p>
                   <p className="text-sm text-muted-foreground">
-                    {testimonial.age} • {testimonial.location}
+                    {story.age} años • {story.city}
                   </p>
                 </div>
               </CardContent>

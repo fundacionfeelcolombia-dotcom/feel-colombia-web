@@ -29,7 +29,7 @@ const services = [
   },
   {
     id: 2,
-    title: "Conserjería de parejas",
+    title: "Consejeria de parejas",
     description:
       "La terapia familiar es un recurso fundamental para acompañar a familias que atraviesan miedos, tensiones o preocupaciones. Nuestro equipo está disponible para brindarte apoyo sin ningún costo.",
     cta: "Más información",

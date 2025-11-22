@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { getWhoWeAre } from "@/lib/strapi";
 import imgKids from "@/public/images/children-enjoying.jpg";
 import collage1Image from "@/public/images/collage-1.jpg";
 import collage2Image from "@/public/images/collage-2.jpg";
@@ -11,7 +12,16 @@ import { Heart, Target } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-const WhoWeArePage = () => {
+export async function generateMetadata() {
+  const strapiData = await getWhoWeAre(); // 1.
+  return strapiData;
+}
+
+const WhoWeArePage = async () => {
+  const strapiData = await getWhoWeAre(); // 2.
+
+  const { cover, textCover, mission, vission } = strapiData || {};
+
   return (
     <div className="min-h-screen bg-background">
       <div className="diagonal-stripes"></div>
@@ -22,16 +32,10 @@ const WhoWeArePage = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="animate-fade-in">
               <h1 className="text-4xl md:text-5xl font-bold text-secondary-blue mb-6">
-                Transformamos la salud mental en una experiencia viva.
+                {cover}
               </h1>
               <p className="text-lg text-secondary-blue-foreground mb-8 leading-relaxed">
-                En Feel Colombia creemos que el bienestar emocional no se
-                enseña, se vive. Somos una fundación que combina ciencia, arte y
-                tecnología para crear nuevas formas de sanar, conectar y crecer.
-                Desde el laboratorio de innovación Synha Lab, impulsamos
-                proyectos que desafían los modelos tradicionales de salud
-                mental, poniendo al ser humano y su historia en el centro de
-                todo.
+                {textCover}
               </p>
             </div>
 
@@ -67,11 +71,7 @@ const WhoWeArePage = () => {
               </CardHeader>
               <CardContent>
                 <p className="text-secondary-blue-foreground leading-relaxed">
-                  Reimaginar la salud mental desde la conexión humana y la
-                  innovación. En Feel Colombia acompañamos procesos que integran
-                  ciencia, tecnología y sensibilidad social para crear espacios
-                  donde las personas puedan comprenderse, reconstruirse y
-                  transformar su entorno emocional.
+                  {mission}
                 </p>
               </CardContent>
             </Card>
@@ -87,10 +87,7 @@ const WhoWeArePage = () => {
               </CardHeader>
               <CardContent>
                 <p className="text-secondary-blue-foreground leading-relaxed">
-                  Ser un movimiento que redefine cómo el mundo entiende y vive
-                  la salud mental. Inspirar una nueva cultura de bienestar,
-                  donde cada experiencia humana o digital despierte conciencia,
-                  empatía y evolución colectiva.
+                  {vission}
                 </p>
               </CardContent>
             </Card>
