@@ -32,7 +32,7 @@ export async function getContact() {
 export async function getStrapiData(url: string) {
   try {
     const response = await fetch(`${STRAPI_BASE_URL}${url}`, {
-      cache: "no-store",
+      next: { revalidate: 60 },
     });
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
