@@ -24,7 +24,7 @@ export async function downloadPDF() {
 export async function sendDataUser(body: any) {
   try {
     const response = await fetch(
-      "https://w29npefjx5.execute-api.us-east-1.amazonaws.com/default/lambda-feel-people",
+      "https://85i76q65yl.execute-api.us-east-1.amazonaws.com/",
       {
         method: "POST",
         headers: {

@@ -30,6 +30,7 @@ export default function ModalDownload({ onClose }: SimpleFormModalProps) {
 
     await sendDataUser(formData);
     await downloadPDF();
+    onClose()
     setLoading(false);
   };
 
