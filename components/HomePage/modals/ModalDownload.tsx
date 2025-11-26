@@ -28,9 +28,24 @@ export default function ModalDownload({ onClose }: SimpleFormModalProps) {
     setLoading(true);
     e.preventDefault();
 
-    await sendDataUser(formData);
+    const htmlMessage = `
+      <div style="font-family: Arial, sans-serif; line-height: 1.5; color: #333;">
+        <h2>Nuevo registro recibido - Ebook</h2>
+        <p><strong>Nombre:</strong> ${formData.nombre}</p>
+        <p><strong>Correo:</strong> ${formData.correo}</p>
+        <p><strong>Edad:</strong> ${formData.edad}</p>
+        <p><strong>Teléfono:</strong> ${formData.telefono}</p>
+        <hr />
+        <p>Este mensaje se envió automáticamente desde tu aplicación.</p>
+      </div>
+    `;
+
+    await sendDataUser({
+      html: htmlMessage,
+      subject: "Nuevo registro - Ebook",
+    });
     await downloadPDF();
-    onClose()
+    onClose();
     setLoading(false);
   };
 

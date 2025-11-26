@@ -5,6 +5,7 @@ import { useState } from "react";
 import { X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { DialogContent, DialogTitle } from "@/components/ui/dialog";
+import { sendDataUser } from "@/lib/utils";
 
 interface CoupleFormModalProps {
   onClose: () => void;
@@ -56,7 +57,7 @@ export default function ModalCouple({ onClose }: CoupleFormModalProps) {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const message = `*Formulario Consulta de Pareja*
 Integrante 1: ${formData.nombre1}
@@ -67,6 +68,29 @@ Acuerdo: ${formData.acuerdo}
 Modalidad: ${formData.modalidad}
 Disponibilidad: ${formData.disponibilidad.join(", ")}
 WhatsApp: ${formData.whatsapp}`;
+
+    const htmlMessage = `
+      <div style="font-family: Arial, sans-serif; line-height: 1.5; color: #333;">
+        <h2>Nuevo registro recibido - Consulta de Pareja</h2>
+        <p><strong>Integrante 1:</strong> ${formData.nombre1}</p>
+        <p><strong>Integrante 2:</strong> ${formData.nombre2}</p>
+        <p><strong>Tiempo de relación:</strong> ${formData.tiempoRelacion}</p>
+        <p><strong>Motivos:</strong> ${formData.motivos.join(", ")}</p>
+        <p><strong>Acuerdo:</strong> ${formData.acuerdo}</p>
+        <p><strong>Modalidad:</strong> ${formData.modalidad}</p>
+        <p><strong>Disponibilidad:</strong> ${formData.disponibilidad.join(
+          ", "
+        )}</p>
+        <p><strong>WhatsApp:</strong> ${formData.whatsapp}</p>
+        <hr />
+        <p>Este mensaje se envió automáticamente desde tu aplicación.</p>
+      </div>
+    `;
+
+    await sendDataUser({
+      html: htmlMessage,
+      subject: "Nuevo registro - Consulta de Pareja",
+    });
 
     const encodedMessage = encodeURIComponent(message);
     window.open(`https://wa.me/+573215459582?text=${encodedMessage}`, "_blank");

@@ -5,6 +5,7 @@ import { useState } from "react";
 import { X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { DialogContent, DialogTitle } from "@/components/ui/dialog";
+import { sendDataUser } from "@/lib/utils";
 
 interface CoupleFormModalProps {
   onClose: () => void;
@@ -54,15 +55,36 @@ export default function ModalCounseling({ onClose }: CoupleFormModalProps) {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const message = `*Formulario Consulta Individual*
-Nombre: ${formData.nombre}
-Edad: ${formData.edad}
-Motivos: ${formData.motivos.join(", ")}
-Modalidad: ${formData.modalidad}
-Disponibilidad: ${formData.disponibilidad.join(", ")}
-WhatsApp: ${formData.whatsapp}`;
+    Nombre: ${formData.nombre}
+    Edad: ${formData.edad}
+    Motivos: ${formData.motivos.join(", ")}
+    Modalidad: ${formData.modalidad}
+    Disponibilidad: ${formData.disponibilidad.join(", ")}
+    WhatsApp: ${formData.whatsapp}`;
+
+    const htmlMessage = `
+      <div style="font-family: Arial, sans-serif; line-height: 1.5; color: #333;">
+        <h2>Nuevo registro recibido - Consulta Individual</h2>
+        <p><strong>Nombre:</strong> ${formData.nombre}</p>
+        <p><strong>Edad:</strong> ${formData.edad}</p>
+        <p><strong>Motivos:</strong> ${formData.motivos.join(", ")}</p>
+        <p><strong>Modalidad:</strong> ${formData.modalidad}</p>
+        <p><strong>Disponibilidad:</strong> ${formData.disponibilidad.join(
+          ", "
+        )}</p>
+        <p><strong>WhatsApp:</strong> ${formData.whatsapp}</p>
+        <hr />
+        <p>Este mensaje se envió automáticamente desde tu aplicación.</p>
+      </div>
+    `;
+
+    await sendDataUser({
+      html: htmlMessage,
+      subject: "Nuevo registro - Consulta Individual",
+    });
 
     const encodedMessage = encodeURIComponent(message);
     window.open(`https://wa.me/573215459582?text=${encodedMessage}`, "_blank");
