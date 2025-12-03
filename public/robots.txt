@@ -1,0 +1,11 @@
+# robots.txt para Feel Colombia
+# https://www.fundacionfeelcolombia.org
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://www.fundacionfeelcolombia.org/sitemap.xml
+
+# Crawl-delay para bots
+Crawl-delay: 1

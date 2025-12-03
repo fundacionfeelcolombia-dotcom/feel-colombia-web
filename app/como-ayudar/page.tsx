@@ -1,5 +1,28 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Gift, Heart, Users } from "lucide-react";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Cómo Ayudar - Dona y Transforma Vidas",
+  description:
+    "Ayuda a niños y jóvenes en Colombia: dona bicicletas de impulso, adopta un hogar o colegio, contribuye con donaciones en especie o voluntariado. Tu aporte previene la depresión y el suicidio juvenil.",
+  keywords: [
+    "donaciones Colombia",
+    "ayuda social",
+    "prevención suicidio",
+    "bicicletas de impulso",
+    "adopción escolar",
+    "voluntariado Colombia",
+    "donaciones bienestar emocional",
+    "fundación Colombia",
+  ],
+  openGraph: {
+    title: "Cómo Ayudar a Feel Colombia - Dona y Transforma Vidas",
+    description:
+      "Tu donación salva sonrisas antes de que se apaguen. Dona bicicletas, adopta colegios o contribuye con tu tiempo para prevenir la ansiedad, depresión y suicidio en jóvenes.",
+    type: "website",
+  },
+};
 
 const HowCanHelp = () => {
   return (

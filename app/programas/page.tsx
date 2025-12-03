@@ -4,6 +4,30 @@ import experienceEducativeImage from "@/public/images/experience-educative.jpg";
 import pulso1Image from "@/public/programs/pulso/pulso-1.jpg";
 import synaConver from "@/public/programs/syna/syna2.jpg";
 import healthInnovationLab from "@/public/images/health-innovation-lab.jpg";
+import { Metadata } from "next";
+import { programsSchema } from "@/lib/schema";
+
+export const metadata: Metadata = {
+  title: "Nuestros Programas de Bienestar Emocional",
+  description:
+    "Conoce nuestros programas: Aula Viva para educación emocional escolar, Pulso Corporativo para bienestar laboral y Synha Lab para innovación en salud mental. Transformamos comunidades en Colombia.",
+  keywords: [
+    "programas bienestar emocional",
+    "Aula Viva",
+    "Pulso Corporativo",
+    "Synha Lab",
+    "educación emocional",
+    "bienestar laboral",
+    "innovación salud mental",
+    "programas escolares Colombia",
+  ],
+  openGraph: {
+    title: "Programas de Bienestar Emocional - Feel Colombia",
+    description:
+      "Aula Viva, Pulso Corporativo y Synha Lab: programas que transforman comunidades a través del bienestar emocional y la salud mental.",
+    type: "website",
+  },
+};
 
 const jsonPrograms = [
   {
@@ -38,6 +62,10 @@ const jsonPrograms = [
 const ProgramsPage = () => {
   return (
     <div className="min-h-screen bg-background">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(programsSchema) }}
+      />
       <div className="diagonal-stripes"></div>
       <main className="pt-16 md:pt-20">
         {/* Hero Section */}

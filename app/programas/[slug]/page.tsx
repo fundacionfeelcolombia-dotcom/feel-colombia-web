@@ -287,7 +287,7 @@ const PageDetailProgram = async ({ params }: ProgramPageProps) => {
               <div className=" bg-muted rounded-lg overflow-hidden shadow-card hover:shadow-soft transition-shadow duration-300">
                 <Image
                   src={findProgram.imgCover}
-                  alt="Ilustración de bienestar emocional"
+                  alt={`${findProgram.title} - Programa de bienestar emocional de Feel Colombia`}
                   className="w-full object-cover h-[400px]"
                 />
               </div>
@@ -349,7 +349,9 @@ const PageDetailProgram = async ({ params }: ProgramPageProps) => {
               >
                 <Image
                   src={img}
-                  alt="Ilustración de bienestar emocional"
+                  alt={`${findProgram.title} - Actividad ${
+                    index + 1
+                  } del programa de bienestar emocional`}
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -361,7 +363,7 @@ const PageDetailProgram = async ({ params }: ProgramPageProps) => {
             <div className="h-full rounded-xl overflow-hidden shadow-2xl hover:shadow-2xl transition-shadow duration-300">
               <Image
                 src={findProgram.imageCenter[0]}
-                alt="Ilustración de bienestar emocional"
+                alt={`${findProgram.title} - Experiencia principal de bienestar emocional en Feel Colombia`}
                 className="w-full h-full object-cover"
               />
             </div>
@@ -373,7 +375,7 @@ const PageDetailProgram = async ({ params }: ProgramPageProps) => {
             <div className="h-64 md:h-56 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
               <Image
                 src={findProgram.imageRight[0]}
-                alt="Ilustración de bienestar emocional"
+                alt={`${findProgram.title} - Participantes del programa de bienestar emocional`}
                 className="w-full h-full object-cover"
               />
             </div>
@@ -382,7 +384,7 @@ const PageDetailProgram = async ({ params }: ProgramPageProps) => {
             <div className="h-64 md:h-56 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
               <Image
                 src={findProgram.imageRight[1]}
-                alt="Ilustración de bienestar emocional"
+                alt={`${findProgram.title} - Comunidad participando en actividades de salud mental`}
                 className="w-full h-full object-cover"
               />
             </div>
