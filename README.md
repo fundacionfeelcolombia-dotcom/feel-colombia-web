@@ -195,8 +195,8 @@ Este proyecto es mantenido por el equipo de Fundación Feel Colombia.
 ## 📞 Contacto
 
 - **Email**: proyectos@fundacionfeelcolombia.org
-- **Sitio web**: [https://www.fundacionfeelcolombia.org](https://www.fundacionfeelcolombia.org)
-- **GitHub**: [fundacionfeelcolombia-dotcom](https://github.com/fundacionfeelcolombia-dotcom)
+- **Sitio web**: [https://www.fundacionfeelcolombia.org](https://www.fundacionfeelcolombia.com)
+- **GitHub**: [fundacionfeelcolombia-dotcom](https://github.com/fundacionfeelcolombia-dotcom/feel-colombia-web)
 
 ## 📄 Licencia
 
