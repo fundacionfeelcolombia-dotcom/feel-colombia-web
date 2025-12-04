@@ -35,7 +35,7 @@ export const EventsHomePage: React.FC<EventsProps> = ({ events }) => {
   return (
     <>
       <section className="py-16 sm:py-24 bg-background">
-        <div className="max-w-6xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4 gap-4 space-y-12">
           {events.map((event) => (
             <div
               className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center"
