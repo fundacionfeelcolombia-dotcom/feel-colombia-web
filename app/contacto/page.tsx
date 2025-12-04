@@ -67,7 +67,9 @@ const Contactpage = async () => {
                       Teléfono
                     </h3>
                     <a
-                      href="tel:+573215459582"
+                      href={`tel:${
+                        phone ? phone.replace(/\+|\s/g, "") : "573215459582"
+                      }`}
                       className="text-primary hover:underline"
                     >
                       {phone}

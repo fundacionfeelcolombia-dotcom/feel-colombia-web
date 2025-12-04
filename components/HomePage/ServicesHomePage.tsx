@@ -50,7 +50,7 @@ const services = [
   },
 ];
 
-export const ServicesHomePage = () => {
+export const ServicesHomePage = ({ phone }: { phone: string }) => {
   const [modal, setModal] = useState({
     status: false,
     type: "",
@@ -126,9 +126,11 @@ export const ServicesHomePage = () => {
 
       <Dialog open={modal.status} onOpenChange={() => {}}>
         {modal.type === TYPES.COUNSELING && (
-          <ModalCounseling onClose={onClose} />
+          <ModalCounseling onClose={onClose} phone={phone} />
         )}
-        {modal.type === TYPES.COUPLE && <ModalCouple onClose={onClose} />}
+        {modal.type === TYPES.COUPLE && (
+          <ModalCouple onClose={onClose} phone={phone} />
+        )}
       </Dialog>
     </>
   );

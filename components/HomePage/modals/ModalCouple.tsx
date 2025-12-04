@@ -9,9 +9,10 @@ import { sendDataUser } from "@/lib/utils";
 
 interface CoupleFormModalProps {
   onClose: () => void;
+  phone: string;
 }
 
-export default function ModalCouple({ onClose }: CoupleFormModalProps) {
+export default function ModalCouple({ onClose, phone }: CoupleFormModalProps) {
   const [formData, setFormData] = useState({
     nombre1: "",
     nombre2: "",
@@ -93,7 +94,12 @@ WhatsApp: ${formData.whatsapp}`;
     });
 
     const encodedMessage = encodeURIComponent(message);
-    window.open(`https://wa.me/+573215459582?text=${encodedMessage}`, "_blank");
+    window.open(
+      `https://wa.me/${
+        phone ? phone.replace(/\+|\s/g, "") : "573215459582"
+      }?text=${encodedMessage}`,
+      "_blank"
+    );
   };
 
   return (
@@ -308,7 +314,7 @@ WhatsApp: ${formData.whatsapp}`;
               name="whatsapp"
               value={formData.whatsapp}
               onChange={handleInputChange}
-              placeholder="+57 321 5459582"
+              placeholder="+57 ***"
               required
               className="w-full px-4 py-2 border border-border rounded-lg bg-background text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
             />

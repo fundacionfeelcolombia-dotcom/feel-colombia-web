@@ -9,9 +9,13 @@ import { sendDataUser } from "@/lib/utils";
 
 interface CoupleFormModalProps {
   onClose: () => void;
+  phone: string;
 }
 
-export default function ModalCounseling({ onClose }: CoupleFormModalProps) {
+export default function ModalCounseling({
+  onClose,
+  phone,
+}: CoupleFormModalProps) {
   const [formData, setFormData] = useState({
     nombre: "",
     edad: "",
@@ -87,7 +91,12 @@ export default function ModalCounseling({ onClose }: CoupleFormModalProps) {
     });
 
     const encodedMessage = encodeURIComponent(message);
-    window.open(`https://wa.me/573215459582?text=${encodedMessage}`, "_blank");
+    window.open(
+      `https://wa.me/${
+        phone ? phone.replace(/\+|\s/g, "") : "573215459582"
+      }?text=${encodedMessage}`,
+      "_blank"
+    );
   };
 
   return (

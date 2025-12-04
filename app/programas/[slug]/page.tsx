@@ -41,6 +41,7 @@ import syna1 from "@/public/programs/syna/syna1.jpg";
 import syna3 from "@/public/programs/syna/syna3.jpg";
 import syna4 from "@/public/programs/syna/syna4.jpg";
 import syna5 from "@/public/programs/syna/syna5.jpg";
+import { getContact } from "@/lib/strapi";
 
 interface ProgramPageProps {
   params: Promise<{ slug: string }>;
@@ -219,8 +220,15 @@ export async function generateStaticParams() {
   return findProgrma;
 }
 
+export async function generateMetadata() {
+  const strapiData = await getContact(); // 1.
+  return strapiData;
+}
+
 const PageDetailProgram = async ({ params }: ProgramPageProps) => {
   const { slug } = await params;
+  const strapiData = await getContact(); // 2.
+  const { email } = strapiData || {};
 
   const findProgram = allPrograms.find((program) => program.slug === slug);
 
@@ -268,7 +276,7 @@ const PageDetailProgram = async ({ params }: ProgramPageProps) => {
             </p>
             <Button size="lg" className="text-white">
               <a
-                href="https://mail.google.com/mail/?view=cm&to=proyectos@fundacionfeelcolombia.org"
+                href={`https://mail.google.com/mail/?view=cm&to=${email}`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -577,15 +585,15 @@ const PageDetailProgram = async ({ params }: ProgramPageProps) => {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
             <Mail className="w-6 h-6 text-primary" />
             <a
-              href="mailto:proyectos@fundacionfeelcolombia.org"
+              href={`mailto:${email}`}
               className="text-lg text-primary hover:underline font-medium"
             >
-              proyectos@fundacionfeelcolombia.org
+              {email}
             </a>
           </div>
           <Button size="lg">
             <a
-              href="https://mail.google.com/mail/?view=cm&to=proyectos@fundacionfeelcolombia.org"
+              href={`https://mail.google.com/mail/?view=cm&to=${email}`}
               target="_blank"
               rel="noopener noreferrer"
               className="text-white"

@@ -1,30 +1,41 @@
 import { Button } from "@/components/ui/button";
+import { getContact } from "@/lib/strapi";
 import { ArrowRight, Gift, Heart, Users } from "lucide-react";
 import { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: "Cómo Ayudar - Dona y Transforma Vidas",
-  description:
-    "Ayuda a niños y jóvenes en Colombia: dona bicicletas de impulso, adopta un hogar o colegio, contribuye con donaciones en especie o voluntariado. Tu aporte previene la depresión y el suicidio juvenil.",
-  keywords: [
-    "donaciones Colombia",
-    "ayuda social",
-    "prevención suicidio",
-    "bicicletas de impulso",
-    "adopción escolar",
-    "voluntariado Colombia",
-    "donaciones bienestar emocional",
-    "fundación Colombia",
-  ],
-  openGraph: {
-    title: "Cómo Ayudar a Feel Colombia - Dona y Transforma Vidas",
-    description:
-      "Tu donación salva sonrisas antes de que se apaguen. Dona bicicletas, adopta colegios o contribuye con tu tiempo para prevenir la ansiedad, depresión y suicidio en jóvenes.",
-    type: "website",
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  // 1. Llama a la API (esta llamada tiene revalidate: 60 segundos)
+  const strapiData = await getContact();
 
-const HowCanHelp = () => {
+  // 2. Definición de la metadata estática base que quieres mantener
+  const staticMetadata: Metadata = {
+    title: "Cómo Ayudar - Dona y Transforma Vidas",
+    description:
+      "Ayuda a niños y jóvenes en Colombia: dona bicicletas de impulso, adopta un hogar o colegio, contribuye con donaciones en especie o voluntariado. Tu aporte previene la depresión y el suicidio juvenil.",
+    keywords: [
+      "donaciones Colombia",
+      "ayuda social",
+      "prevención suicidio",
+      // ... más keywords
+    ],
+    openGraph: {
+      title: "Cómo Ayudar a Feel Colombia - Dona y Transforma Vidas",
+      description:
+        "Tu donación salva sonrisas antes de que se apaguen. Dona bicicletas, adopta colegios o contribuye con tu tiempo para prevenir la ansiedad, depresión y suicidio en jóvenes.",
+      type: "website",
+    },
+  };
+
+  return {
+    ...staticMetadata,
+    ...strapiData,
+  };
+}
+
+const HowCanHelp = async () => {
+  const strapiData = await getContact(); // 2.
+  const { email } = strapiData || {};
+
   return (
     <div className="min-h-screen bg-background">
       <div className="diagonal-stripes"></div>
@@ -293,7 +304,7 @@ const HowCanHelp = () => {
               className="bg-primary hover:bg-primary/90 text-white cursor-pointer font-semibold"
             >
               <a
-                href="https://mail.google.com/mail/?view=cm&to=proyectos@fundacionfeelcolombia.org"
+                href={`https://mail.google.com/mail/?view=cm&to=${email}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white"
